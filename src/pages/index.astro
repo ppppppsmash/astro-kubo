@@ -1,22 +1,25 @@
 ---
-import Stats from '../components/Stats.astro';
-import HeroSection from '../components/HeroSection.astro';
-import Layout from '../layouts/Layout.astro';
-import Testimonials from '../components/Testimonials.astro';
-import CallToAction from '../components/CallToAction.astro';
-import BentoGrid from '@components/BentoGrid.astro';
-import SpeedSection from '@components/SpeedSection.astro';
-import AboutSection from '@components/AboutSection.astro';
+import Base from "@/layouts/Base.astro";
+import Banner from "@/layouts/components/Banner.astro";
+import KeyFeatures from "@/layouts/components/KeyFeatures.astro";
+import Testimonial from "@/layouts/components/Testimonial.astro";
+import Service from "@/layouts/components/Service.astro";
+import Cta from "@/layouts/partials/Cta.astro";
+import { getEntryBySlug } from "astro:content";
+
+const homepage = await getEntryBySlug("homepage", "index");
+const { banner, key_features, service, testimonial } = homepage.data;
 ---
 
-<Layout title="Welcome to Astrolus.">
-	<main class="space-y-16 sm:space-y-28 lg:space-y-32 pb-40 overflow-hidden">
-		<HeroSection/>
-		<AboutSection />
-		<BentoGrid />
-		<SpeedSection />
-		<Stats/>
-		<Testimonials/>
-		<CallToAction/>
-	</main>
-</Layout>
+<Base>
+  <!-- banner -->
+  <Banner banner={banner} />
+  <!-- key features -->
+  <KeyFeatures key_features={key_features} />
+  <!-- service -->
+  <Service service={service} />
+  <!-- testimonial -->
+  <Testimonial testimonial={testimonial} />
+  <!-- call to action -->
+  <Cta />
+</Base>
