@@ -12,7 +12,7 @@ banner:
 ##key features
 key_features:
   title: "公司策略"
-  description: our structured approach helps you navigate uncertainties
+  description: 機能食品跟高階護膚品兩者相輔相成，內服及外用延續細胞生命力，不斷跟世界接軌，選用世界頂尖、升級原料，不妥協，不落後。
 
   # works
   feature_list:
@@ -27,11 +27,9 @@ key_features:
       list:
         - 遵循日本嚴謹的規格及制度
         - 最權威實驗室與專業科學研究人員
-        - 將充足臨床分析及實驗數據所研發的原料，對肌膚達到全能抗老、延續青春秘方，達到使用有感的肌膚體驗，重新賦予保養全新概念
-    - title: 機能食品跟高階護膚品兩者相輔相成，內服及外用延續細胞生命力，不斷跟世界接軌，選用世界頂尖、升級原料，不妥協，不落後。
-      image: "/images/how-it-work/image-3.png"
-      list:
-        -
+        - 充足臨床分析及實驗數據所研發的原料
+        - 對肌膚達到全能抗老、延續青春秘方
+        - 達到使用有感的肌膚體驗，重新賦予保養全新概念
 
 #service
 service:
