@@ -4,9 +4,11 @@ import { Image } from "astro:assets";
 import HomapageFeature from "@/layouts/function-components/HomapageFeature";
 const { key_features } = Astro.props;
 const { title, description, feature_list } = key_features;
+
+import { AiFillCheckCircle } from "react-icons/ai";
 ---
 
-<section class="section key-feature relative">
+<section id="features" class="section key-feature relative">
   <Image
     class="absolute left-0 top-0 -z-[1] -translate-y-1/2"
     src="/images/feature-shape.png"
@@ -23,6 +25,45 @@ const { title, description, feature_list } = key_features;
         <p set:html={markdownify(description)} />
       </div>
     </div>
-    <HomapageFeature feature_list={feature_list} client:load />
+  </div>
+    {
+      feature_list.map((item: any, index: number) => (
+        <div class="gx-5 row mt-16 items-center first:mt-12">
+          <div
+            class={`lg:col-7 ${
+              index % 2 === 0 ? "lg:order-1" : "lg:order-0"
+            }`}
+          >
+            <div class="relative">
+              <Image
+                class="w-full object-contain"
+                alt="service"
+                width={473}
+                height={286}
+                src={item.image}
+              />
+            </div>
+          </div>
+          <div
+            class={`mt-6 lg:col-5 lg:mt-0 ${
+              index % 2 === 0 ? "lg:order-0" : "lg:order-1"
+            }`}
+          >
+            <div class="text-container">
+              <h2 class="lg:text-4xl">{item.title}</h2>
+
+              <ul class="mt-6 text-dark lg:-ml-4">
+                {item.list.map((list: any) => (
+                  <li class="mb-2 flex items-center rounded px-4">
+                    <AiFillCheckCircle className="mr-3 fill-primary text-white" />
+                    {list}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))
+    }
   </div>
 </section>
