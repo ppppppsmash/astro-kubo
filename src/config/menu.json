@@ -6,19 +6,15 @@
     },
     {
       "name": "About",
-      "url": "/about"
+      "url": "/#about"
     },
     {
       "name": "Company",
-      "url": "/blog"
+      "url": "/#company"
     },
     {
       "name": "Features",
-      "url": "/features"
-    },
-    {
-      "name": "How It Works",
-      "url": "/how-it-works"
+      "url": "/#features"
     },
     {
       "name": "Pages",
@@ -27,23 +23,13 @@
       "children": [
         {
           "name": "Career",
-          "url": "/career"
+          "url": "/#career"
         },
 
         {
           "name": "Integrations",
-          "url": "/integrations"
+          "url": "/#integrations"
         },
-
-        {
-          "name": "Pricing",
-          "url": "/pricing"
-        },
-        {
-          "name": "Sign In",
-          "url": "/signin"
-        },
-
         {
           "name": "Elements",
           "url": "/elements"
@@ -60,7 +46,7 @@
     },
     {
       "name": "Contact",
-      "url": "/contact"
+      "url": "/#contact"
     }
   ],
 

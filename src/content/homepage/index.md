@@ -1,11 +1,11 @@
 ---
 banner:
-  title: "Scale design & dev operations with Avocode Enterprise"
-  content: "A fully integrated suite of authentication & authoriz products, Stytch’s platform removes the headache of."
-  image: /images/banner-img.png
+  title: "投資美麗加碼健康是久保生醫創立初衷"
+  content: "全產品100%原料來自日本國,產地日本國,來自日本的純粹的久保生醫邀您 美麗與健康同時擁有"
+  image: /images/banner-img.png #改修予定
   button:
-    label: Download The Theme
-    link: "https://themefisher.com/astro-themes/pinwheel-astro"
+    label: "聯繫我們"
+    link: "#"
     enable: true
 
 ##key features
