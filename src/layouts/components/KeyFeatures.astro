@@ -17,12 +17,10 @@ import { AiFillCheckCircle } from "react-icons/ai";
     alt=""
   />
   <div class="container">
-    <div class="row justify-between text-center lg:text-start">
-      <div class="lg:col-5">
-        <h2 set:html={markdownify(title)} />
-      </div>
-      <div class="mt-6 lg:col-5 lg:mt-0">
-        <p set:html={markdownify(description)} />
+    <div class="row">
+      <div class="mx-auto text-center lg:col-8">
+        <h2>{title}</h2>
+        <p class="mt-4">{description}</p>
       </div>
     </div>
     {

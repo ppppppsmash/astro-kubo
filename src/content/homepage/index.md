@@ -33,37 +33,34 @@ key_features:
 
 #service
 service:
-  homepage_tab:
-    title: Prevent failure from to impacting your reputation
-    description: Our platform helps you build secure onboarding authentication experiences that retain and engage your users. We build the infrastructure, you can.
-    tab_list:
-        - title: Habit building essential choose habit
-          icon: "lock"  #icon package react-feather-icon [https://feathericons.com/]
-          image: "/images/sells-by-country.png"
-        - title: Get an overview of Habit Calendars.
-          icon: "clock"  #icon package react-feather-icon [https://feathericons.com/]
-          image: "/images/collaboration.png"
-        - title: Start building with Habitify platform
-          icon: "bell"  #icon package react-feather-icon [https://feathericons.com/]
-          image: "/images/sells-by-country.png"
-
-  our_service:
-    - title: Accept payments any country in this whole universe
-      desctiption: Donec sollicitudin molestie malesda. Donec sollitudin molestie malesuada. Mauris pellentesque nec, egestas non nisi. Cras ultricies ligula sed
-      image: "/images/collaboration.png"
-      list:
-        - Supporting more than 119 country world
-        - Open transaction with more than currencies
-        - Customer Service with 79 languages
-    - title: Accountability that works for you
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas Werat viverra id et aliquet. vulputate egestas sollicitudin.
-      video:
-        thumbnail: "/images/intro-thumbnail.png"
-        video_id: "g3-VxLQO7do"
-      button:
-        label: Know About Us
-        link: "#"
-        enable: true
+  title: 原料供應及需求
+  description: Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor amet, consectetur adipiscing elit. Praesent sapien massa, convallis a pellentesque
+  service_list:
+    - title: Competitive salary
+      content: "Nulla porttitor acmsan tinci dunt. posuere cubilia Cudfrae Donec velit neque, autor sit
+      amet aliuam vel"
+      color: "#24A1FF"
+      icon: briefcase #icon package react-feather-icon [https://feathericons.com]
+    - title: 100% remote
+      content: "Nulla porttitor acmsan tinci dunt. posuere cubilia Cudfrae Donec velit neque, autor sit amet aliuam vel"
+      color: "#7B5AFF"
+      icon: aperture #icon package react-feather-icon [https://feathericons.com]
+    - title: Unlimited PTO
+      content: "Nulla porttitor acmsan tinci dunt. posuere cubilia Cudfrae Donec velit neque, autor sit amet aliuam vel"
+      color: "#FDC528"
+      icon: umbrella  #icon package react-feather-icon [https://feathericons.com]
+    - title: Flexible HOURS
+      content: "Nulla porttitor acmsan tinci dunt. posuere cubilia Cudfrae Donec velit neque, autor sit amet aliuam vel"
+      color: "#FF5874"
+      icon: clock  #icon package react-feather-icon [https://feathericons.com]
+    - title: Medical insurance
+      content: "Nulla porttitor acmsan tinci dunt. posuere cubilia Cudfrae Donec velit neque, autor sit amet aliuam vel"
+      color: "#12E189"
+      icon: plusSquare  #icon package react-feather-icon [https://feathericons.com]
+    - title: Career growth
+      content: "Nulla porttitor acmsan tinci dunt. posuere cubilia Cudfrae Donec velit neque, autor sit amet aliuam vel"
+      color: "#E545FF"
+      icon: barChart  #icon package react-feather-icon [https://feathericons.com]
 
 #testimonial
 testimonial:

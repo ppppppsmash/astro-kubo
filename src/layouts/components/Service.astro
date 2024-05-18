@@ -4,73 +4,45 @@ import VideoComponent from "@/layouts/function-components/VideoComponent";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { Image } from "astro:assets";
 const { service } = Astro.props;
-const { homepage_tab, our_service } = service;
+const { title, description, service_list } = service;
 ---
 
 <section class="section services">
   <div class="container">
-    <HomepageTab client:load homepage_tab={homepage_tab} />
-    {
-      our_service.map((item: any, index: number) => (
-        <div class="gx-5 row mt-12 items-center lg:mt-0">
-          <div class={`lg:col-7 ${index % 2 === 0 ? "order-0" : "order-1"}`}>
-            {item.image && (
-              <div class="relative">
-                <Image
-                  class="w-full object-contain"
-                  alt="service"
-                  width={667}
-                  height={498}
-                  src={item.image}
+    <div class="row">
+      <div class="mx-auto text-center lg:col-8">
+        <h2>{title}</h2>
+        <p class="mt-4">{description}</p>
+      </div>
+    </div>
+    <div class="row mt-14 text-center">
+      {
+        service_list.map((item: any, index: number) => (
+          <div class="mb-10 sm:col-6 lg:col-4">
+            <div class="relative">
+              <svg
+                class={`mx-auto h-[90px] w-[100px]`}
+                style={{
+                  fill: item.color,
+                  opacity: 0.1,
+                }}
+                viewBox="0 0 200 200"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M47.1,-61.5C62.2,-53.9,76.5,-41.7,83.1,-25.9C89.6,-10.2,88.6,9.1,82.4,26.4C76.2,43.6,64.9,58.7,50.4,70.5C35.8,82.2,17.9,90.6,0,90.7C-18,90.7,-35.9,82.4,-48.4,70C-61,57.6,-68.1,41,-73.6,23.9C-79.1,6.9,-83,-10.7,-78.6,-26C-74.3,-41.3,-61.6,-54.3,-47.1,-62.1C-32.6,-70,-16.3,-72.7,-0.1,-72.5C16,-72.3,32,-69.2,47.1,-61.5Z"
+                  transform="translate(100 100)"
                 />
-                <Image
-                  class="absolute bottom-6 left-1/2 -z-[1] -translate-x-1/2"
-                  src="/images/shape-2.png"
-                  alt=""
-                  height={147}
-                  width={151}
-                />
-              </div>
-            )}
-            {item.video && (
-              <VideoComponent
-                client:load
-                src={item.video.thumbnail}
-                height={370}
-                width={700}
-                title={item.title}
-                video_id={item.video.video_id}
-                video_width="w-[700px]"
-                video_height="h-[370px]"
-              />
-            )}
-          </div>
-          <div
-            class={`mt-6 lg:col-5 lg:mt-0 ${
-              index % 2 === 0 ? "order-1" : "order-0"
-            }`}
-          >
-            <div class="text-container">
-              <h2 class="lg:text-4xl">{item.title}</h2>
-              <p class="mt-4">{item.description}</p>
-              {item.button && item.button.enable && (
-                <a class="btn btn-white mt-6" href={item.button.link}>
-                  {item.button.label}
-                </a>
-              )}
-              <ul class="mt-6 text-dark lg:-ml-4">
-                {item.list &&
-                  item.list.map((list: any) => (
-                    <li class="mb-2 flex items-center rounded px-4">
-                      <AiFillCheckCircle className="mr-3 fill-primary text-white" />
-                      {list}
-                    </li>
-                  ))}
-              </ul>
+              </svg>
+              <span class="benifit-icon absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[28%]">
+                {/* <FeatherIcon color={item.color} size={48} /> */}
+              </span>
             </div>
+            <h3 class="h4 mb-4 mt-8">{item.title}</h3>
+            <p>{item.content}</p>
           </div>
-        </div>
-      ))
-    }
+        ))
+      }
+    </div>
   </div>
 </section>
