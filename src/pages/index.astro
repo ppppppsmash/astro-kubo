@@ -5,13 +5,15 @@ import KeyFeatures from "@/layouts/components/KeyFeatures.astro";
 import Testimonial from "@/layouts/components/Testimonial.astro";
 import Service from "@/layouts/components/Service.astro";
 import ProductAuthentication from "@/layouts/components/ProductAuthentication.astro";
+import Event from "@/layouts/components/Event.astro";
 import Cta from "@/layouts/partials/Cta.astro";
+
 import { getEntryBySlug } from "astro:content";
 
 const homepage = await getEntryBySlug("homepage", "index");
 
 // src/content/homapge/index.md
-const { banner, key_features, service, product_authentication, testimonial } = homepage.data;
+const { banner, key_features, service, product_authentication, event, testimonial } = homepage.data;
 ---
 
 <Base>
@@ -23,6 +25,8 @@ const { banner, key_features, service, product_authentication, testimonial } = h
   <Service service={service} />
   <!-- authentication -->
   <ProductAuthentication product_authentivation={product_authentication} />
+  <!-- event -->
+  <Event event={event} />
   <!-- testimonial -->
   <Testimonial testimonial={testimonial} />
   <!-- call to action -->

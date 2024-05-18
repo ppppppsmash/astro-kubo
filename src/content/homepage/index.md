@@ -58,6 +58,11 @@ product_authentication:
   title: 產品認證
   description: 產品認證相關信息（需要補充）
 
+#event
+event:
+  title: 精益求精 步步扎根踏實 專家接軌
+  description: 產品認證相關信息（需要補充）
+
 
 #testimonial
 testimonial:
