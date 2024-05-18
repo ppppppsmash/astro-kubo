@@ -1,0 +1,20 @@
+---
+import HomepageTab from "@/layouts/function-components/HomepageTab";
+import VideoComponent from "@/layouts/function-components/VideoComponent";
+import { AiFillCheckCircle } from "react-icons/ai";
+import { Image } from "astro:assets";
+const { product_authentivation } = Astro.props;
+const { title, description } = product_authentivation;
+---
+
+<section class="section services">
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto text-center lg:col-8">
+        <h2>{title}</h2>
+        <p class="mt-4">{description}</p>
+      </div>
+    </div>
+    
+  </div>
+</section>

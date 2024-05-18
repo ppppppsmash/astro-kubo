@@ -53,6 +53,12 @@ service:
       color: "#E545FF"
       icon: barChart  #icon package react-feather-icon [https://feathericons.com]
 
+#product_authentivation
+product_authentication:
+  title: 產品認證
+  description: 產品認證相關信息（需要補充）
+
+
 #testimonial
 testimonial:
   title: Our customers have nice things to say about us
