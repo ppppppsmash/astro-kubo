@@ -34,31 +34,22 @@ key_features:
 #service
 service:
   title: 原料供應及需求
-  description: Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor amet, consectetur adipiscing elit. Praesent sapien massa, convallis a pellentesque
+  description: 安全的分析及認證
   service_list:
-    - title: Competitive salary
-      content: "Nulla porttitor acmsan tinci dunt. posuere cubilia Cudfrae Donec velit neque, autor sit
-      amet aliuam vel"
+    - title: 出廠保證
+      content: 功效性保證 有效性保證 濃度的保證
       color: "#24A1FF"
       icon: briefcase #icon package react-feather-icon [https://feathericons.com]
-    - title: 100% remote
-      content: "Nulla porttitor acmsan tinci dunt. posuere cubilia Cudfrae Donec velit neque, autor sit amet aliuam vel"
+    - title: 包裝保證
+      content: 100%日本規範 100%日本印刷 100%日本包裝 100%日本瓶器
       color: "#7B5AFF"
       icon: aperture #icon package react-feather-icon [https://feathericons.com]
-    - title: Unlimited PTO
-      content: "Nulla porttitor acmsan tinci dunt. posuere cubilia Cudfrae Donec velit neque, autor sit amet aliuam vel"
+    - title: 國際同步接軌
+      content: 廣納全球各地實驗室科研學術單位-英國、德國、法國、瑞典..等國家，找尋對人類美麗健康延續青春有幫助的原料。
       color: "#FDC528"
       icon: umbrella  #icon package react-feather-icon [https://feathericons.com]
-    - title: Flexible HOURS
-      content: "Nulla porttitor acmsan tinci dunt. posuere cubilia Cudfrae Donec velit neque, autor sit amet aliuam vel"
-      color: "#FF5874"
-      icon: clock  #icon package react-feather-icon [https://feathericons.com]
-    - title: Medical insurance
-      content: "Nulla porttitor acmsan tinci dunt. posuere cubilia Cudfrae Donec velit neque, autor sit amet aliuam vel"
-      color: "#12E189"
-      icon: plusSquare  #icon package react-feather-icon [https://feathericons.com]
-    - title: Career growth
-      content: "Nulla porttitor acmsan tinci dunt. posuere cubilia Cudfrae Donec velit neque, autor sit amet aliuam vel"
+    - title: 職人精神
+      content: 以職人精神打造商品，每一環節嚴謹，造就非凡。
       color: "#E545FF"
       icon: barChart  #icon package react-feather-icon [https://feathericons.com]
 
