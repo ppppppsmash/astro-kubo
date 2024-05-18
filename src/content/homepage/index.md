@@ -63,24 +63,21 @@ event:
   title: 精益求精 步步扎根踏實 專家接軌
   description: 產品認證相關信息（需要補充）
   projects:
-    - title: Reduce friction
-      content: Encourage frequent & timely recognition integrating with communication tools
+    - title: 日本乳酸菌学会
+      content: 經過層層審核成為日本乳酸菌学会榮譽會員， 協會會員居多是醫生背景在定期研討會中獲得廣大臨床經驗及數據，益生菌在未來趨勢可以逆轉疾病對抗微生物、病毒對全球人類的傷害
       icon: lock  #icon package react-feather-icon [https://feathericons.com/]
-    - title: Reduce friction
-      content: Encourage frequent & timely recognition integrating with communication tools
+    - title: 聘請海內外專家
+      content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
       icon: tv  #icon package react-feather-icon [https://feathericons.com/]
-    - title: Reduce friction
-      content: Encourage frequent & timely recognition integrating with communication tools
+    - title: 日本琉球大學-屋宏典教授 (放合照圖)
+      content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
       icon: tool  #icon package react-feather-icon [https://feathericons.com/]
-    - title: Reduce friction
-      content: Encourage frequent & timely recognition integrating with communication tools
+    - title: 胎盤專家(放合照圖)
+      content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
       icon: lock  #icon package react-feather-icon [https://feathericons.com/]
-    - title: Reduce friction
-      content: Encourage frequent & timely recognition integrating with communication tools
+    - title: 要請日本公司提供学会 編號及證書
+      content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
       icon: tv  #icon package react-feather-icon [https://feathericons.com/]
-    - title: Reduce friction
-      content: Encourage frequent & timely recognition integrating with communication tools
-      icon: tool  #icon package react-feather-icon [https://feathericons.com/]
 
 
 #testimonial
