@@ -62,6 +62,25 @@ product_authentication:
 event:
   title: 精益求精 步步扎根踏實 專家接軌
   description: 產品認證相關信息（需要補充）
+  projects:
+    - title: Reduce friction
+      content: Encourage frequent & timely recognition integrating with communication tools
+      icon: lock  #icon package react-feather-icon [https://feathericons.com/]
+    - title: Reduce friction
+      content: Encourage frequent & timely recognition integrating with communication tools
+      icon: tv  #icon package react-feather-icon [https://feathericons.com/]
+    - title: Reduce friction
+      content: Encourage frequent & timely recognition integrating with communication tools
+      icon: tool  #icon package react-feather-icon [https://feathericons.com/]
+    - title: Reduce friction
+      content: Encourage frequent & timely recognition integrating with communication tools
+      icon: lock  #icon package react-feather-icon [https://feathericons.com/]
+    - title: Reduce friction
+      content: Encourage frequent & timely recognition integrating with communication tools
+      icon: tv  #icon package react-feather-icon [https://feathericons.com/]
+    - title: Reduce friction
+      content: Encourage frequent & timely recognition integrating with communication tools
+      icon: tool  #icon package react-feather-icon [https://feathericons.com/]
 
 
 #testimonial
