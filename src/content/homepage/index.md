@@ -80,7 +80,7 @@ event:
       icon: tv  #icon package react-feather-icon [https://feathericons.com/]
 
 
-#testimonial
+#global_pro
 global_pro:
   title: 國際專家接軌
   description: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
@@ -100,4 +100,22 @@ global_pro:
       organization: 國立中興大學循環經濟研究院院長
       rating: three
       content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+
+#business
+business:
+  title: 行銷各國
+  description: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+  images:
+    - "/images/about/gallery-img-1.png"
+    - "/images/about/gallery-img-3.png"
+    - "/images/about/gallery-img-2.png"
+  business_list:
+    - title: 日本
+      content: 全通路均可銷售，可洽詢通路及區域經銷
+    - title: 海外分公司駐點
+      content: 中國 台灣 新加坡 馬來西亞 越南 建立亞太行銷網絡，可洽詢亞太通路及分區經銷
+    - title: 聯名合作
+      content: 日本或海外通路可洽合作
+    - title: ODM合作
+      content: 提供專業原料配方、包裝整體專業建議規劃
 ---

@@ -1,0 +1,75 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+const { business } = Astro.props;
+const { title, description, images, business_list } = business;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-center text-center">
+      <div class="col-8">
+        <h2 set:html={markdownify(title)} />
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="row" id="photo-gallery">
+        {
+          images.map((image: any) => (
+            <div class="picture-item col-6 mt-12">
+              {" "}
+              <img class="w-full" src={image} alt="" />
+            </div>
+          ))
+        }
+
+        <div class="js-shuffle-sizer col-1"></div>
+      </div>
+      <img
+        class="absolute -bottom-5 -left-5 -z-[1]"
+        src="images/shape-2.png"
+        alt=""
+      />
+      <img
+        class="absolute -right-5 bottom-20 -z-[1] h-16 w-16"
+        src="images/shape.png"
+        alt=""
+      />
+    </div>
+    <div class="row mt-14">
+      {
+        business_list.map((item: any, i: number) => (
+          <div class="mb-8 sm:col-6 lg:col-4">
+            <div class="rounded-xl bg-white p-6 shadow-lg lg:p-8">
+              <div class="gradient-number relative inline-block">
+                <span class="bg-gradient absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                  {i > 8 ? i + 1 : `0${i + 1}`}
+                </span>
+                {/* <Image
+                  height={90}
+                  width={90}
+                  src="/images/gradient-number-bg.png"
+                  alt=""
+                /> */}
+              </div>
+              <h4 class="my-6">{item.title}</h4>
+              <p>{item.content}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  import Shuffle from "shufflejs";
+  const element = document.getElementById("photo-gallery");
+  const sizer = element?.querySelector(".js-shuffle-sizer");
+  // Assumes you're using the UMD version of Shuffle (for example, from unpkg.com).
+  const shuffleInstance = new Shuffle(element, {
+    itemSelector: ".picture-item",
+    sizer: sizer,
+    columnWidth: 1,
+  });
+</script>
