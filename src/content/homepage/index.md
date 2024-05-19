@@ -2,12 +2,11 @@
 banner:
   title: 投資美麗加碼健康是久保生醫創立初衷
   content: 全產品100%原料來自日本國,產地日本國,來自日本的純粹的久保生醫邀您 美麗與健康同時擁有
-  image: /images/banner-img.png #改修予定
+  image: https://placehold.jp/600x500.png #改修予定
   button:
     label: 聯繫我們
     link: "#"
     enable: true
-
 
 ##key features
 key_features:
@@ -17,13 +16,13 @@ key_features:
   # works
   feature_list:
     - title: 機能食品  
-      image: "/images/how-it-work/image-1.png"
+      image: https://placehold.jp/600x500.png #改修予定
       list:
         - 透過用天然原型食物營養素補充身體機能
         - 取代藥物作用，我們將帶領您正確、有效的補充保健食品
         - 減低必須用藥的過程，讓純淨自然成分，享受真正的健康！
     - title: 高階護膚品
-      image: "/images/how-it-work/image-2.png"
+      image: https://placehold.jp/600x500.png #改修予定
       list:
         - 遵循日本嚴謹的規格及制度
         - 最權威實驗室與專業科學研究人員
@@ -78,7 +77,6 @@ event:
     - title: 要請日本公司提供学会 編號及證書
       content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
       icon: tv  #icon package react-feather-icon [https://feathericons.com/]
-
 
 #global_pro
 global_pro:
