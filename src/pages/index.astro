@@ -2,7 +2,7 @@
 import Base from "@/layouts/Base.astro";
 import Banner from "@/layouts/components/Banner.astro";
 import KeyFeatures from "@/layouts/components/KeyFeatures.astro";
-import Testimonial from "@/layouts/components/Testimonial.astro";
+import GlobalPro from "@/layouts/components/GlobalPro.astro";
 import Service from "@/layouts/components/Service.astro";
 import ProductAuthentication from "@/layouts/components/ProductAuthentication.astro";
 import Event from "@/layouts/components/Event.astro";
@@ -28,7 +28,7 @@ const { banner, key_features, service, product_authentication, event, testimonia
   <!-- event -->
   <Event event={event} />
   <!-- testimonial -->
-  <Testimonial testimonial={testimonial} />
+  <GlobalPro testimonial={testimonial} />
   <!-- call to action -->
   <Cta />
 </Base>

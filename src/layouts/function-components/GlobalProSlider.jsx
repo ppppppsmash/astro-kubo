@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const TestimonialSlider = ({ list }) => {
+const GlobalProSlider = ({ list }) => {
   SwiperCore.use([Pagination]);
   const [swiper, setSwiper] = useState(null);
   const paginationRef = useRef(null);
@@ -44,15 +44,6 @@ const TestimonialSlider = ({ list }) => {
               <h4 className="mb-2">{item.author}</h4>
               <p className="mb-4 text-[#666]">{item.organization}</p>
               <p>{item.content}</p>
-              <div
-                className={`review-rating mt-6 flex items-center justify-center space-x-2.5 ${item.rating}  `}
-              >
-                <Star />
-                <Star />
-                <Star />
-                <Star />
-                <Star />
-              </div>
             </div>
           </SwiperSlide>
         ))}
@@ -69,4 +60,4 @@ const TestimonialSlider = ({ list }) => {
   );
 };
 
-export default TestimonialSlider;
+export default GlobalProSlider;

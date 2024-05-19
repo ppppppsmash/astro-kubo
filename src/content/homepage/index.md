@@ -82,52 +82,22 @@ event:
 
 #testimonial
 testimonial:
-  title: Our customers have nice things to say about us
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas Werat viverra id et aliquet. vulputate egestas sollicitudin.
+  title: 國際專家接軌
+  description: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
   testimonial_list:
-    - author: David Cameron
+    - author: 英國專家
       avatar: "/images/users/user-5.png"
-      organization: meta limited
+      organization: 英國Optibiotix
       rating: four
-      content: Our platform helps build secure onboarding authentica experiences & engage your users. We build .
-    - author: David Cameron
+      content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+    - author: 台灣專家 蔡正宗博士 
       avatar: "/images/users/user-6.png"
-      organization: meta limited
+      organization: 諾麗果王教父-東海大學前農學院長
       rating: four
-      content: Our platform helps build secure onboarding authentica experiences & engage your users. We build .
-    - author: David Cameron
+      content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+    - author: 天然藥物專家 王升陽
       avatar: "/images/users/user-2.png"
-      organization: meta limited
+      organization: 國立中興大學循環經濟研究院院長
       rating: three
-      content: Our platform helps build secure onboarding authentica experiences & engage your users. We build .
-    - author: David Cameron
-      avatar: "/images/users/user-3.png"
-      organization: meta limited
-      rating: five
-      content: Our platform helps build secure onboarding authentica experiences & engage your users. We build .
-    - author: David Cameron
-      avatar: "/images/users/user-4.png"
-      organization: meta limited
-      rating: five
-      content: Our platform helps build secure onboarding authentica experiences & engage your users. We build .
-    - author: David Cameron
-      avatar: "/images/users/user-1.png"
-      organization: meta limited
-      rating: three
-      content: Our platform helps build secure onboarding authentica experiences & engage your users. We build .
-    - author: David Cameron
-      avatar: "/images/users/user-5.png"
-      organization: meta limited
-      rating: five
-      content: Our platform helps build secure onboarding authentica experiences & engage your users. We build .
-    - author: David Cameron
-      avatar: "/images/users/user-5.png"
-      organization: meta limited
-      rating: five
-      content: Our platform helps build secure onboarding authentica experiences & engage your users. We build .
-    - author: David Cameron
-      avatar: "/images/users/user-5.png"
-      organization: meta limited
-      rating: five
-      content: Our platform helps build secure onboarding authentica experiences & engage your users. We build .
+      content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
 ---
