@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "久保生医",
-    "base_url": "/",
+    "base_url": "https://sample.com",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",

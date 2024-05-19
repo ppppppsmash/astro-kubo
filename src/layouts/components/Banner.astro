@@ -1,6 +1,9 @@
 ---
 import { markdownify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
+
+import Bubble from "@/components/ui/Bubble.astro";
+
 const { banner } = Astro.props;
 const { title, button, image, content } = banner;
 ---
@@ -33,11 +36,15 @@ const { title, button, image, content } = banner;
     </div>
   </div>
 
-  <Image
+  <!-- <Image
     class="banner-shape absolute -top-28 right-0 -z-[1] w-full max-w-[30%]"
     alt="banner"
     src="/images/banner-shape.png"
     width={496}
     height={466}
+  /> -->
+  <Bubble
+    class="absolute -z-[100] -top-[250px] right-0"
+    childrenClass="before:w-[496px] before:h-[466px]"
   />
 </section>
