@@ -9,44 +9,24 @@
       "url": "/#features"
     },
     {
-      "name": "Company",
-      "url": "/#company"
+      "name": "Service",
+      "url": "/#service"
     },
     {
-      "name": "About",
-      "url": "/#about"
+      "name": "Strengths",
+      "url": "/#strengths"
     },
     {
-      "name": "Pages",
-      "url": "",
-      "hasChildren": true,
-      "children": [
-        {
-          "name": "Career",
-          "url": "/#career"
-        },
-
-        {
-          "name": "Integrations",
-          "url": "/#integrations"
-        },
-        {
-          "name": "Elements",
-          "url": "/elements"
-        },
-        {
-          "name": "Changelog",
-          "url": "/changelog"
-        },
-        {
-          "name": "Terms And Conditions",
-          "url": "/terms-and-conditions"
-        }
-      ]
+      "name": "Event",
+      "url": "/#event"
     },
     {
-      "name": "Contact",
-      "url": "/#contact"
+      "name": "Global",
+      "url": "/#global"
+    },
+    {
+      "name": "Business",
+      "url": "/#business"
     }
   ]
 }
