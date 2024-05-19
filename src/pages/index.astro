@@ -13,7 +13,7 @@ import { getEntryBySlug } from "astro:content";
 const homepage = await getEntryBySlug("homepage", "index");
 
 // src/content/homapge/index.md
-const { banner, key_features, service, product_authentication, event, testimonial } = homepage.data;
+const { banner, key_features, service, product_authentication, event, global_pro } = homepage.data;
 ---
 
 <Base>
@@ -28,7 +28,7 @@ const { banner, key_features, service, product_authentication, event, testimonia
   <!-- event -->
   <Event event={event} />
   <!-- testimonial -->
-  <GlobalPro testimonial={testimonial} />
+  <GlobalPro global_pro={global_pro} />
   <!-- call to action -->
   <Cta />
 </Base>

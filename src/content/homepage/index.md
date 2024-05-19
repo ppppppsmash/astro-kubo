@@ -81,22 +81,22 @@ event:
 
 
 #testimonial
-testimonial:
+global_pro:
   title: 國際專家接軌
   description: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
-  testimonial_list:
+  pro_list:
     - author: 英國專家
-      avatar: "/images/users/user-5.png"
+      avatar: "https://placehold.jp/150x150.png"
       organization: 英國Optibiotix
       rating: four
       content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
     - author: 台灣專家 蔡正宗博士 
-      avatar: "/images/users/user-6.png"
+      avatar: "https://placehold.jp/150x150.png"
       organization: 諾麗果王教父-東海大學前農學院長
       rating: four
       content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
     - author: 天然藥物專家 王升陽
-      avatar: "/images/users/user-2.png"
+      avatar: "https://placehold.jp/150x150.png"
       organization: 國立中興大學循環經濟研究院院長
       rating: three
       content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
