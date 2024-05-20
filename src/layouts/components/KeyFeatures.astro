@@ -2,6 +2,9 @@
 import { markdownify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
 import HomapageFeature from "@/layouts/function-components/HomapageFeature";
+
+import Bubble from "@/components/ui/Bubble.astro";
+
 const { key_features } = Astro.props;
 const { title, description, feature_list } = key_features;
 
@@ -9,12 +12,9 @@ import { AiFillCheckCircle } from "react-icons/ai";
 ---
 
 <section id="features" class="section key-feature relative">
-  <Image
-    class="absolute left-0 top-0 -z-[1] -translate-y-1/2"
-    src="/images/feature-shape.png"
-    height={126}
-    width={63}
-    alt=""
+  <Bubble
+    class="absolute -z-[100] top-0 left-0"
+    childrenClass="before:w-[80px] before:h-[80px]"
   />
   <div class="container">
     <div class="row">

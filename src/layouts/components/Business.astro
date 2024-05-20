@@ -1,5 +1,8 @@
 ---
 import { markdownify } from "@/lib/utils/textConverter";
+
+import Bubble from "@/components/ui/Bubble.astro";
+
 const { business } = Astro.props;
 const { title, description, images, business_list } = business;
 ---
@@ -25,15 +28,13 @@ const { title, description, images, business_list } = business;
 
         <div class="js-shuffle-sizer col-1"></div>
       </div>
-      <img
-        class="absolute -bottom-5 -left-5 -z-[1]"
-        src="images/shape-2.png"
-        alt=""
+      <Bubble
+        class="absolute -bottom-8 left-0 -z-[1]"
+        childrenClass="before:w-[120px] before:h-[80px]"
       />
-      <img
+      <Bubble
         class="absolute -right-5 bottom-20 -z-[1] h-16 w-16"
-        src="images/shape.png"
-        alt=""
+        childrenClass="before:w-[200px] before:h-[200px]"
       />
     </div>
     <div class="row mt-14">

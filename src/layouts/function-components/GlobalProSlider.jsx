@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
-import { Star } from "react-feather";
+
 import SwiperCore from "swiper";
+
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
