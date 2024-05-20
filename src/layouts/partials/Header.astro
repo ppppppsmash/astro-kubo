@@ -96,12 +96,16 @@ const { pathname } = Astro.url;
               </li>
             ) : (
               <li class="nav-item">
-                <a
+                {/* <a
                   href={menu.url}
                   class={`nav-link inline-block lg:block ${
                     (pathname === `${menu.url}/` || pathname === menu.url) &&
                     "active"
                   }`}
+                > */}
+                <a
+                  href={menu.url}
+                  class={`nav-link inline-block lg:block`}
                 >
                   {menu.name}
                 </a>
