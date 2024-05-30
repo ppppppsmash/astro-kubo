@@ -9,6 +9,8 @@ import GlobalPro from "@/layouts/components/GlobalPro.astro";
 import Business from "@/layouts/components/Business.astro";
 import Cta from "@/layouts/partials/Cta.astro";
 
+import ParallaxPanel from "@/layouts/components/ParallaxPanel";
+
 import { getEntryBySlug } from "astro:content";
 
 const homepage = await getEntryBySlug("homepage", "index");
@@ -19,7 +21,9 @@ const { banner, key_features, service, strengths, event, global_pro, business } 
 
 <Base>
   <!-- banner -->
-  <Banner banner={banner} />
+  <!-- <Banner banner={banner} /> -->
+  <!-- parallax -->
+  <ParallaxPanel client:load />
   <!-- key features -->
   <KeyFeatures key_features={key_features} />
   <!-- service -->

@@ -20,7 +20,9 @@ export default defineConfig({
     service: squooshImageService(),
   },
   integrations: [
-    react(),
+    react({
+      include: ['**/**/**/react-ui/*']
+    }),
     sitemap(),
     tailwind({
       config: {
