@@ -8,57 +8,7 @@ export default function ParallaxPanel() {
 }
 export const products = [
   {
-    title: "テスト1",
-    link: "#",
-    thumbnail:
-      "https://placehold.jp/600x500.png",
-  },
-  {
     title: "テスト",
-    link: "#",
-    thumbnail:
-      "https://placehold.jp/600x500.png",
-  },
-  {
-    title: "テスト",
-    link: "#",
-    thumbnail:
-      "https://placehold.jp/600x500.png",
-  },
-
-  {
-    title: "テスト",
-    link: "#",
-    thumbnail:
-      "https://placehold.jp/600x500.png",
-  },
-  {
-    title: "Editrix テスト",
-    link: "#",
-    thumbnail:
-      "https://placehold.jp/600x500.png",
-  },
-  {
-    title: "Pixel テスト",
-    link: "#",
-    thumbnail:
-      "https://placehold.jp/600x500.png",
-  },
-
-  {
-    title: "テスト",
-    link: "#",
-    thumbnail:
-      "https://placehold.jp/600x500.png",
-  },
-  {
-    title: "テスト",
-    link: "#",
-    thumbnail:
-      "https://placehold.jp/600x500.png",
-  },
-  {
-    title: "Tailwind テスト",
     link: "#",
     thumbnail:
       "https://placehold.jp/600x500.png",
@@ -83,7 +33,20 @@ export const products = [
       "https://placehold.jp/600x500.png",
   },
   {
-    title: "Golden テスト",
+    title: "テスト",
+    link: "#",
+    thumbnail:
+      "https://placehold.jp/600x500.png",
+  },
+  {
+    title: "テスト",
+    link: "#",
+    thumbnail:
+      "https://placehold.jp/600x500.png",
+  },
+
+  {
+    title: "テスト",
     link: "#",
     thumbnail:
       "https://placehold.jp/600x500.png",
@@ -95,7 +58,44 @@ export const products = [
       "https://placehold.jp/600x500.png",
   },
   {
-    title: "E テスト",
+    title: "テスト",
+    link: "#",
+    thumbnail:
+      "https://placehold.jp/600x500.png",
+  },
+  {
+    title: "テスト",
+    link: "#",
+    thumbnail:
+      "https://placehold.jp/600x500.png",
+  },
+  {
+    title: "テスト",
+    link: "#",
+    thumbnail:
+      "https://placehold.jp/600x500.png",
+  },
+
+  {
+    title: "テスト",
+    link: "#",
+    thumbnail:
+      "https://placehold.jp/600x500.png",
+  },
+  {
+    title: "テスト",
+    link: "#",
+    thumbnail:
+      "https://placehold.jp/600x500.png",
+  },
+  {
+    title: "テスト",
+    link: "#",
+    thumbnail:
+      "https://placehold.jp/600x500.png",
+  },
+  {
+    title: "テスト",
     link: "#",
     thumbnail:
       "https://placehold.jp/600x500.png",
