@@ -1,5 +1,8 @@
 import mdx from "@astrojs/mdx";
+
+//https://docs.astro.build/ja/guides/integrations-guide/react/
 import react from "@astrojs/react";
+
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import AutoImport from "astro-auto-import";
