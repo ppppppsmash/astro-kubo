@@ -9,11 +9,11 @@ import GlobalPro from "@/layouts/components/GlobalPro.astro";
 import Business from "@/layouts/components/Business.astro";
 import Cta from "@/layouts/partials/Cta.astro";
 
-import ParallaxPanel from "@/layouts/components/ParallaxPanel";
+import ParallaxPanel from "@/layouts/components/tw/ParallaxPanel";
 
 import { getEntryBySlug } from "astro:content";
 
-const homepage = await getEntryBySlug("homepage", "index");
+const homepage = await getEntryBySlug("tw", "index");
 
 // src/content/homapge/index.md
 const { banner, key_features, service, strengths, event, global_pro, business } = homepage.data;

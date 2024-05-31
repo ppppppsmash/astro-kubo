@@ -104,10 +104,10 @@ export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
       <h1 className="text-2xl md:text-5xl font-bold dark:text-white">
-        美しさへの投資<br />健康へのさらなる追求は、<br />久保生医の創立の初志です。
+        投資美麗<br />加碼健康是久保生醫創立初衷
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-      全ての製品は100%日本国産の原料を使用し、日本で製造されています。日本の純粋な久保生医が、美しさと健康を同時に手に入れるお手伝いをいたします。
+        全產品100%原料來自日本國,產地日本國,來自日本的純粹的久保生醫邀您 美麗與健康同時擁有
       </p>
     </div>
   );
