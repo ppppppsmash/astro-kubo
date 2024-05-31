@@ -9,7 +9,7 @@ import {
   MotionValue,
 } from "framer-motion";
 
-import { HeroHighlight, Highlight } from "./hero-highlight";
+import { Highlight } from "./hero-highlight";
 
 export const HeroParallax = ({
   products,

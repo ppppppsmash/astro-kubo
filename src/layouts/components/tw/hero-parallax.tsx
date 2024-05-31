@@ -9,6 +9,8 @@ import {
   MotionValue,
 } from "framer-motion";
 
+import { Highlight } from "../react-ui/hero-highlight";
+
 export const HeroParallax = ({
   products,
 }: {
@@ -103,9 +105,9 @@ export const HeroParallax = ({
 export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="text-2xl md:text-5xl font-bold dark:text-white">
+      <Highlight className="text-white text-2xl md:text-5xl font-bold !leading-[1.3]">
         投資美麗<br />加碼健康是久保生醫創立初衷
-      </h1>
+      </Highlight>
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
         全產品100%原料來自日本國,產地日本國,來自日本的純粹的久保生醫邀您 美麗與健康同時擁有
       </p>
