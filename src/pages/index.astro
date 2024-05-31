@@ -10,6 +10,7 @@ import Business from "@/layouts/components/Business.astro";
 import Cta from "@/layouts/partials/Cta.astro";
 
 import ParallaxPanel from "@/layouts/components/ParallaxPanel";
+import AosComponent from "@/layouts/components/react-ui/aos-component";
 
 import { getEntryBySlug } from "astro:content";
 
@@ -25,17 +26,35 @@ const { banner, key_features, service, strengths, event, global_pro, business } 
   <!-- parallax -->
   <ParallaxPanel client:load />
   <!-- key features -->
-  <KeyFeatures key_features={key_features} />
+  <AosComponent client:load>
+    <KeyFeatures key_features={key_features} />
+  </AosComponent>
+
   <!-- service -->
-  <Service service={service} />
+  <AosComponent client:load>
+    <Service service={service} />
+  </AosComponent>
+
   <!-- authentication -->
-  <Strengths strengths={strengths} />
+  <AosComponent client:load>
+    <Strengths strengths={strengths} />
+  </AosComponent>
+
   <!-- event -->
-  <Event event={event} />
+  <AosComponent client:load>
+    <Event event={event} />
+  </AosComponent>
+
   <!-- global pro -->
-  <GlobalPro global_pro={global_pro} />
+  <AosComponent client:load>
+    <GlobalPro global_pro={global_pro} />
+  </AosComponent>
+
   <!-- business -->
-  <Business business={business} />
+  <AosComponent client:load>
+    <Business business={business} />
+  </AosComponent>
+
   <!-- call to action -->
   <!-- <Cta /> -->
 </Base>
