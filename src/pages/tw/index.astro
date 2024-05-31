@@ -1,0 +1,41 @@
+---
+import Base from "@/layouts/Base.astro";
+import Banner from "@/layouts/components/Banner.astro";
+import KeyFeatures from "@/layouts/components/KeyFeatures.astro";
+import Service from "@/layouts/components/Service.astro";
+import Strengths from "@/components/Strengths.astro";
+import Event from "@/layouts/components/Event.astro";
+import GlobalPro from "@/layouts/components/GlobalPro.astro";
+import Business from "@/layouts/components/Business.astro";
+import Cta from "@/layouts/partials/Cta.astro";
+
+import ParallaxPanel from "@/layouts/components/ParallaxPanel";
+
+import { getEntryBySlug } from "astro:content";
+
+const homepage = await getEntryBySlug("homepage", "index");
+
+// src/content/homapge/index.md
+const { banner, key_features, service, strengths, event, global_pro, business } = homepage.data;
+---
+
+<Base>
+  <!-- banner -->
+  <!-- <Banner banner={banner} /> -->
+  <!-- parallax -->
+  <ParallaxPanel client:load />
+  <!-- key features -->
+  <KeyFeatures key_features={key_features} />
+  <!-- service -->
+  <Service service={service} />
+  <!-- authentication -->
+  <Strengths strengths={strengths} />
+  <!-- event -->
+  <Event event={event} />
+  <!-- global pro -->
+  <GlobalPro global_pro={global_pro} />
+  <!-- business -->
+  <Business business={business} />
+  <!-- call to action -->
+  <!-- <Cta /> -->
+</Base>
