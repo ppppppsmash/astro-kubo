@@ -32,23 +32,23 @@ key_features:
 
 #service
 service:
-  title: 原料供應及需求
-  description: 安全的分析及認證
+  title: 原料の供給と需要
+  description: 製品安全および認証
   service_list:
-    - title: 出廠保證
-      content: 功效性保證 有效性保證 濃度的保證
+    - title: 出荷保証
+      content: 効果保証 有效性保証 濃度保証
       color: "#24A1FF"
       icon: briefcase #icon package react-feather-icon [https://feathericons.com]
-    - title: 包裝保證
-      content: 100%日本規範 100%日本印刷 100%日本包裝 100%日本瓶器
+    - title: パッケージ保証
+      content: 100%日本仕様 100%日本製印刷 100%日本製パッケージ 100%日本製容器
       color: "#7B5AFF"
       icon: aperture #icon package react-feather-icon [https://feathericons.com]
-    - title: 國際同步接軌
-      content: 廣納全球各地實驗室科研學術單位-英國、德國、法國、瑞典..等國家，找尋對人類美麗健康延續青春有幫助的原料。
+    - title: 国際水準
+      content: イギリス、ドイツ、フランス、スウェーデンなどの国々で、人間の美しさ、健康、若さの維持に役立つ原料を幅広く探し求めております
       color: "#FDC528"
       icon: umbrella  #icon package react-feather-icon [https://feathericons.com]
-    - title: 職人精神
-      content: 以職人精神打造商品，每一環節嚴謹，造就非凡。
+    - title: 職人の精神
+      content: 職人の精神で商品を作り上げ、すべての工程を厳格に管理し、非凡なものを生み出します
       color: "#E545FF"
       icon: barChart  #icon package react-feather-icon [https://feathericons.com]
 
