@@ -54,46 +54,43 @@ service:
 
 #strengths
 strengths:
-  title: 產品認證
-  description: 產品認證相關信息（需要補充）
+  title: 製品認証
+  description: （認証情報）
 
 #event
 event:
-  title: 精益求精 步步扎根踏實 專家接軌
-  description: 產品認證相關信息（需要補充）
+  title: 技術の精進を求め、専門家と連携する
+  description: 
   projects:
     - title: 日本乳酸菌学会
-      content: 經過層層審核成為日本乳酸菌学会榮譽會員， 協會會員居多是醫生背景在定期研討會中獲得廣大臨床經驗及數據，益生菌在未來趨勢可以逆轉疾病對抗微生物、病毒對全球人類的傷害
+      content: 審査を経て、日本乳酸菌学会の名誉会員として認定されました。協会の会員の多くは医師であり、定期的な研究会で豊富な臨床経験とデータを得ています。プロバイオティクスは、将来的な傾向として、微生物やウイルスに対する疾病の逆転や、それが世界中の人々に与える影響に対抗することができると考えられています
       icon: lock  #icon package react-feather-icon [https://feathericons.com/]
-    - title: 聘請海內外專家
+    - title: 国際間専門家を採用します
       content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
       icon: tv  #icon package react-feather-icon [https://feathericons.com/]
-    - title: 日本琉球大學-屋宏典教授 (放合照圖)
+    - title: 日本の琉球大学教授 - 屋宏典
       content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
       icon: tool  #icon package react-feather-icon [https://feathericons.com/]
-    - title: 胎盤專家(放合照圖)
+    - title: 胎盤専門家
       content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
       icon: lock  #icon package react-feather-icon [https://feathericons.com/]
-    - title: 要請日本公司提供学会 編號及證書
-      content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
-      icon: tv  #icon package react-feather-icon [https://feathericons.com/]
 
 #global_pro
 global_pro:
-  title: 國際專家接軌
+  title: 国際的な専門家との連携
   description: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
   pro_list:
-    - author: 英國專家
+    - author: イギリス専門家
       avatar: "https://placehold.jp/150x150.png"
       organization: 英國Optibiotix
       rating: four
       content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
-    - author: 台灣專家 蔡正宗博士 
+    - author: 台湾専門家 蔡正宗博士 
       avatar: "https://placehold.jp/150x150.png"
       organization: 諾麗果王教父-東海大學前農學院長
       rating: four
       content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
-    - author: 天然藥物專家 王升陽
+    - author: 天然薬物の専門家、王升陽
       avatar: "https://placehold.jp/150x150.png"
       organization: 國立中興大學循環經濟研究院院長
       rating: three
@@ -101,7 +98,7 @@ global_pro:
 
 #business
 business:
-  title: 行銷各國
+  title: マーケティング
   description: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
   images:
     - "/images/about/gallery-img-1.png"
@@ -109,12 +106,12 @@ business:
     - "/images/about/gallery-img-2.png"
   business_list:
     - title: 日本
-      content: 全通路均可銷售，可洽詢通路及區域經銷
-    - title: 海外分公司駐點
-      content: 中國 台灣 新加坡 馬來西亞 越南 建立亞太行銷網絡，可洽詢亞太通路及分區經銷
-    - title: 聯名合作
-      content: 日本或海外通路可洽合作
-    - title: ODM合作
-      content: 提供專業原料配方、包裝整體專業建議規劃
+      content: 全ての販売チャネルで販売可能であり、販売チャネルや地域ディーラーについてはお問い合わせください
+    - title: 海外の支社を設立
+      content: 中国、台湾、シンガポール、マレーシア、ベトナムにおいてアジア太平洋地域のマーケティングネットワークを構築し、アジア太平洋地域の販売チャネルや地域ディーラーについてはお問い合わせください
+    - title: コラボ開発
+      content: 日本または海外の販売チャネルとの協力を検討可能です
+    - title: ODM製品の開発
+      content: 原料配合と包装の全体的な専門的な提案を提供します
 ---
                             
