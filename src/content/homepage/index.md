@@ -16,13 +16,13 @@ key_features:
   # works
   feature_list:
     - title: サプリメント  
-      image: https://placehold.jp/600x500.png #改修予定
+      image: /images/landing_pic1.jpg #改修予定
       list:
         - 天然食品を通じて栄養素を補給し、身体機能をサポートします
         - 薬の代わりに、正確かつ効果的にサプリメントを補給する方法をお教えします
         - 必要な薬の使用を減らし、純粋で自然な成分で真の健康を楽しみましょう！
     - title: 高級スキンケア製品
-      image: https://placehold.jp/600x500.png #改修予定
+      image: /images/landing_pic2.jpg #改修予定
       list:
         - 日本の厳格な規格および制度に従い
         - 権威ある実験室と専門の科学研究者
@@ -101,8 +101,8 @@ business:
   title: マーケティング
   description: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
   images:
-    - "/images/about/gallery-img-1.png"
-    - "/images/about/gallery-img-3.png"
+    - "/images/landing_pic3.jpg"
+    - "/images/landing_pic4.jpg"
     - "/images/about/gallery-img-2.png"
   business_list:
     - title: 日本
