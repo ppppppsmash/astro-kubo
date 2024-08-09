@@ -16,13 +16,13 @@ key_features:
   # works
   feature_list:
     - title: 機能食品  
-      image: https://placehold.jp/600x500.png #改修予定
+      image: /images/landing_pic1.jpg #改修予定
       list:
         - 透過用天然原型食物營養素補充身體機能
         - 取代藥物作用，我們將帶領您正確、有效的補充保健食品
         - 減低必須用藥的過程，讓純淨自然成分，享受真正的健康！
     - title: 高階護膚品
-      image: https://placehold.jp/600x500.png #改修予定
+      image: /images/landing_pic2.jpg #改修予定
       list:
         - 遵循日本嚴謹的規格及制度
         - 最權威實驗室與專業科學研究人員
@@ -104,8 +104,8 @@ business:
   title: 行銷各國
   description: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
   images:
-    - "/images/about/gallery-img-1.png"
-    - "/images/about/gallery-img-3.png"
+    - "/images/landing_pic3.jpg"
+    - "/images/landing_pic4.jpg"
     - "/images/about/gallery-img-2.png"
   business_list:
     - title: 日本
