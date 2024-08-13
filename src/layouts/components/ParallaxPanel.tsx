@@ -8,26 +8,25 @@ export default function ParallaxPanel() {
 }
 export const products = [
   {
-    title: "テスト",
+    title: "テスト1",
     link: "#",
     thumbnail:
       "/images/landing_pic1.jpg",
   },
   {
-    title: "テスト",
+    title: "テスト2",
     link: "#",
     thumbnail:
       "/images/landing_pic2.jpg",
   },
   {
-    title: "テスト",
+    title: "テスト3",
     link: "#",
     thumbnail:
       "/images/landing_pic3.jpg",
   },
-
   {
-    title: "テスト",
+    title: "テスト4",
     link: "#",
     thumbnail:
       "/images/landing_pic4.jpg",
