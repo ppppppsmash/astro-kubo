@@ -66,17 +66,14 @@ event:
       content: 經過層層審核成為日本乳酸菌学会榮譽會員， 協會會員居多是醫生背景在定期研討會中獲得廣大臨床經驗及數據，益生菌在未來趨勢可以逆轉疾病對抗微生物、病毒對全球人類的傷害
       icon: lock  #icon package react-feather-icon [https://feathericons.com/]
     - title: 聘請海內外專家
-      content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+      content: 我們致力於聘請國際專家，運用來自全球視角的意見與見解，進一步推動益生菌的研究。透過這些努力，我們將能加深對於不同文化與地區微生物利用的理解，並提供更有效的健康改善方案。
       icon: tv  #icon package react-feather-icon [https://feathericons.com/]
     - title: 日本琉球大學-屋宏典教授 (放合照圖)
-      content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+      content: 琉球大學的屋宏典教授專注於益生菌與腸道菌群相互作用的研究。教授的研究有助於加深對於腸道環境健康對全身健康影響的理解，並支持新型益生菌產品的開發。
       icon: tool  #icon package react-feather-icon [https://feathericons.com/]
     - title: 胎盤專家(放合照圖)
-      content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+      content: 我們與胎盤專家合作，研究胎盤衍生的營養素如何影響益生菌的效果。此研究旨在了解微生物在母體健康與新生兒發育中的角色，並推動更有效的健康管理和治療方法的開發。
       icon: lock  #icon package react-feather-icon [https://feathericons.com/]
-    - title: 要請日本公司提供学会 編號及證書
-      content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
-      icon: tv  #icon package react-feather-icon [https://feathericons.com/]
 
 #global_pro
 global_pro:

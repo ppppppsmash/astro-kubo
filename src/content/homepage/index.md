@@ -64,15 +64,15 @@ event:
   projects:
     - title: 日本乳酸菌学会
       content: 審査を経て、日本乳酸菌学会の名誉会員として認定されました。協会の会員の多くは医師であり、定期的な研究会で豊富な臨床経験とデータを得ています。プロバイオティクスは、将来的な傾向として、微生物やウイルスに対する疾病の逆転や、それが世界中の人々に与える影響に対抗することができると考えられています
-      icon: lock  #icon package react-feather-icon [https://feathericons.com/]
-    - title: 国際間専門家を採用します
-      content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
-      icon: tv  #icon package react-feather-icon [https://feathericons.com/]
+      icon: lock
+    - title: 国際間専門家の採用
+      content: 国際的な専門家を採用し、グローバルな視点からの意見と知見を活用して、プロバイオティクス研究をさらに発展させることを目指しています。これにより、多様な文化や地域における微生物の利用に関する理解を深め、より効果的な健康改善策を提供することが可能となります。
+      icon: tv
     - title: 日本の琉球大学教授 - 屋宏典
-      content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+      content: 琉球大学の屋宏典教授は、プロバイオティクスと腸内フローラの相互作用に関する専門的な研究を行っています。教授の研究は、腸内環境の健康が全身の健康に与える影響についての理解を深めるために貢献しており、その知識を活用して新たなプロバイオティクス製品の開発をサポートしています。
       icon: tool  #icon package react-feather-icon [https://feathericons.com/]
     - title: 胎盤専門家
-      content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+      content: 胎盤専門家と連携し、胎盤由来の栄養素がプロバイオティクスの効果にどのように影響するかを研究しています。この取り組みは、母体の健康と新生児の発達における微生物の役割を理解し、より効果的な健康管理と治療法の開発に繋げることを目的としています。
       icon: lock  #icon package react-feather-icon [https://feathericons.com/]
 
 #global_pro
@@ -81,17 +81,14 @@ global_pro:
   description: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
   pro_list:
     - author: イギリス専門家
-      avatar: "https://placehold.jp/150x150.png"
       organization: 英國Optibiotix
       rating: four
       content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
     - author: 台湾専門家 蔡正宗博士 
-      avatar: "https://placehold.jp/150x150.png"
       organization: 諾麗果王教父-東海大學前農學院長
       rating: four
       content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
-    - author: 天然薬物の専門家、王升陽
-      avatar: "https://placehold.jp/150x150.png"
+    - author: 天然薬物の専門家 王升陽
       organization: 國立中興大學循環經濟研究院院長
       rating: three
       content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
