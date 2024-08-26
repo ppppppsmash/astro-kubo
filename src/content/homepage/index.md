@@ -37,20 +37,20 @@ service:
   service_list:
     - title: 出荷保証
       content: 効果保証 有效性保証 濃度保証
-      color: "#24A1FF"
-      icon: briefcase #icon package react-feather-icon [https://feathericons.com]
+      color: "#FFB347"
+      icon: IconTir #icon package react-feather-icon [https://feathericons.com]
     - title: パッケージ保証
       content: 100%日本仕様 100%日本製印刷 100%日本製パッケージ 100%日本製容器
-      color: "#7B5AFF"
-      icon: aperture #icon package react-feather-icon [https://feathericons.com]
+      color: "#FFB347"
+      icon: IconPackages #icon package react-feather-icon [https://feathericons.com]
     - title: 国際水準
       content: イギリス、ドイツ、フランス、スウェーデンなどの国々で、人間の美しさ、健康、若さの維持に役立つ原料を幅広く探し求めております
-      color: "#FDC528"
-      icon: umbrella  #icon package react-feather-icon [https://feathericons.com]
+      color: "#FFB347"
+      icon: IconWorld  #icon package react-feather-icon [https://feathericons.com]
     - title: 職人の精神
       content: 職人の精神で商品を作り上げ、すべての工程を厳格に管理し、非凡なものを生み出します
-      color: "#E545FF"
-      icon: barChart  #icon package react-feather-icon [https://feathericons.com]
+      color: "#FFB347"
+      icon: IconFlare  #icon package react-feather-icon [https://feathericons.com]
 
 #strengths
 strengths:
