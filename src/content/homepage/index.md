@@ -55,7 +55,8 @@ service:
 #strengths
 strengths:
   title: 製品認証
-  description: （認証情報）
+  image_url: /images/kyoukai.png
+  description: 弊社の製品は、日本乳酸菌学会により正式に認証を受け、さらに会員として登録されています。この認証は、製品の品質と信頼性を証明するものであり、乳酸菌研究の最前線に立つ専門家たちからの支持を得ていることを示しています。学会の会員として、弊社は最新の研究成果を共有し、プロバイオティクス分野の発展に貢献してまいります。
 
 #event
 event:
@@ -78,20 +79,20 @@ event:
 #global_pro
 global_pro:
   title: 国際的な専門家との連携
-  description: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+  description: 国際的な専門家との連携は、グローバルな視点と最新の研究成果を取り入れるための重要な戦略です。この連携により、特定の分野における知識の共有や共同研究が促進され、技術革新や研究の質が向上します
   pro_list:
     - author: イギリス専門家
       organization: 英國Optibiotix
       rating: four
-      content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
-    - author: 台湾専門家 蔡正宗博士 
-      organization: 諾麗果王教父-東海大學前農學院長
-      rating: four
-      content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
-    - author: 天然薬物の専門家 王升陽
-      organization: 國立中興大學循環經濟研究院院長
-      rating: three
-      content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+      content: OptiBiotix Health PLC（オプティバイオティクス・ヘルス）は、イギリスを拠点とするバイオテクノロジー企業です。同社は、特にプロバイオティクス（有益な微生物）やプレバイオティクス（腸内の善玉菌を増やす食物成分）を活用した健康改善のための革新的な製品を開発しています。
+    # - author: 台湾専門家 蔡正宗博士 
+    #   organization: 諾麗果王教父-東海大學前農學院長
+    #   rating: four
+    #   content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+    # - author: 天然薬物の専門家 王升陽
+    #   organization: 國立中興大學循環經濟研究院院長
+    #   rating: three
+    #   content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
 
 #business
 business:

@@ -4,7 +4,7 @@ import VideoComponent from "@/layouts/function-components/VideoComponent";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { Image } from "astro:assets";
 const { strengths } = Astro.props;
-const { title, description } = strengths;
+const { title, image_url, description } = strengths;
 ---
 
 <section id="strengths" class="section services scroll-mt-24">
@@ -12,6 +12,9 @@ const { title, description } = strengths;
     <div class="row">
       <div class="mx-auto text-center lg:col-8">
         <h2>{title}</h2>
+        <div class="my-8 flex justify-center">
+          <img src={image_url} alt={title} />
+        </div>
         <p class="mt-4">{description}</p>
       </div>
     </div>
