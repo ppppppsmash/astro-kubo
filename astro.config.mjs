@@ -62,4 +62,7 @@ export default defineConfig({
     },
     extendDefaultPlugins: true,
   },
+  build: {
+    sourcemap: false,
+  }
 });
