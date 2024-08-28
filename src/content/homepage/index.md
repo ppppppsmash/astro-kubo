@@ -1,12 +1,6 @@
 ---
 banner:
-  title: 投資美麗加碼健康是久保生醫創立初衷
-  content: 全產品100%原料來自日本國,產地日本國,來自日本的純粹的久保生醫邀您 美麗與健康同時擁有
-  image: https://placehold.jp/600x500.png #改修予定
-  button:
-    label: 聯繫我們
-    link: "#"
-    enable: true
+  image: /images/top_banner.jpg
 
 ##key features
 key_features:

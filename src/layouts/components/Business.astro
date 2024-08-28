@@ -46,12 +46,6 @@ const { title, description, images, business_list } = business;
                 <span class="bg-gradient absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                   {i > 8 ? i + 1 : `0${i + 1}`}
                 </span>
-                {/* <Image
-                  height={90}
-                  width={90}
-                  src="/images/gradient-number-bg.png"
-                  alt=""
-                /> */}
               </div>
               <h4 class="my-6">{item.title}</h4>
               <p>{item.content}</p>
@@ -68,9 +62,9 @@ const { title, description, images, business_list } = business;
   const element = document.getElementById("photo-gallery");
   const sizer = element?.querySelector(".js-shuffle-sizer");
   // Assumes you're using the UMD version of Shuffle (for example, from unpkg.com).
-  const shuffleInstance = new Shuffle(element, {
+  const shuffleInstance = new Shuffle(element as HTMLElement, {
     itemSelector: ".picture-item",
-    sizer: sizer,
+    sizer: sizer as HTMLElement,
     columnWidth: 1,
   });
 </script>

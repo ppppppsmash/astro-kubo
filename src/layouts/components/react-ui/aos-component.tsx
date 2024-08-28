@@ -1,9 +1,12 @@
 "use client";
 
-import React from "react";
-import { useEffect } from "react";
+import React,{ useEffect } from "react";
 
+import 'aos/dist/aos.css';
+
+// @ts-ignore
 import AOS from 'aos';
+// @ts-ignore
 import 'aos/dist/aos.css';
 
 export default function AosComponent({
