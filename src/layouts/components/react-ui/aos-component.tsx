@@ -20,7 +20,7 @@ export default function AosComponent({
 
   return (
     <div
-      data-aos="zoom-in"
+      data-aos="fade-right"
       data-aos-delay="50"
       data-aos-duration="1000"
       data-aos-once="false"

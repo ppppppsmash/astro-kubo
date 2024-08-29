@@ -19,10 +19,10 @@
 
   "fonts": {
     "font_family": {
-      "primary": "Poppins:wght@400;500;600;700",
+      "primary": "Hiragino Kaku Gothic ProN",
       "primary_type": "sans-serif",
-      "secondary": "Merriweather:wght@700;900",
-      "secondary_type": "sans-serif"
+      "secondary": "Yumincho",
+      "secondary_type": "serif"
     },
     "font_size": {
       "base": "16",

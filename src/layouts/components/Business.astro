@@ -11,7 +11,7 @@ const { title, description, images, business_list } = business;
   <div class="container">
     <div class="row justify-center text-center">
       <div class="col-8">
-        <h2 set:html={markdownify(title)} />
+        <h2 class="text-3xl font-medium" set:html={markdownify(title)} />
       </div>
     </div>
 
@@ -47,7 +47,7 @@ const { title, description, images, business_list } = business;
                   {i > 8 ? i + 1 : `0${i + 1}`}
                 </span>
               </div>
-              <h4 class="my-6">{item.title}</h4>
+              <h5 class="text-lg font-semibold my-6">{item.title}</h5>
               <p>{item.content}</p>
             </div>
           </div>

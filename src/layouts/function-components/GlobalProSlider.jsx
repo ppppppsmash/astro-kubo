@@ -39,7 +39,7 @@ const GlobalProSlider = ({ list }) => {
         {list.map((item, i) => (
           <SwiperSlide key={"feature-" + i}>
             <div className="review">
-              <h4 className="mb-2">{item.author}</h4>
+              <h4 className="text-xl font-medium mb-2">{item.author}</h4>
               <p className="mb-4 text-[#666]">{item.organization}</p>
               <p>{item.content}</p>
             </div>

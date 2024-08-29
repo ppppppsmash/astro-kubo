@@ -22,7 +22,7 @@ const HomepageTab = ({ homepage_tab: { tab_list, title, description } }) => {
       </div>
       <div className="mt-6 lg:col-5 lg:order-1 lg:mt-0">
         <div className="text-container">
-          <h2 className="lg:text-4xl">{title}</h2>
+          <h2 class="text-2xl font-medium">{title}</h2>
           <p className="mt-4">{description}</p>
           <ul className="tab-nav mt-8 border-b-0">
             {tab_list.map((item, index) => {

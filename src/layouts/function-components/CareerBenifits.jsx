@@ -6,7 +6,7 @@ const CareerBenifits = ({ benifits: { title, description, benifit_list } }) => {
       <div className="container">
         <div className="row">
           <div className="mx-auto text-center lg:col-8">
-            <h2>{title}</h2>
+            <h2 class="text-3xl font-medium">{title}</h2>
             <p className="mt-4">{description}</p>
           </div>
         </div>
