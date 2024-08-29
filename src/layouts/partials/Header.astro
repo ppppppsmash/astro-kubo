@@ -18,7 +18,7 @@ const { main }: { main: NavigationLink[] } = menu;
 const { pathname } = Astro.url;
 ---
 
-<header class="header">
+<header class="header header-block">
   <nav class="navbar container">
     <!-- logo -->
     <div class="order-0">
@@ -112,8 +112,8 @@ const { pathname } = Astro.url;
           href={pathname === '/' ? '/tw' : '/'}
           class="relative inline-flex h-10 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
         >
-          <span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-          <span class="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+          <span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FFFFFF_0%,#FFD700_25%,#FFB347_100%)]" />
+          <span class="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gradient-to-r from-[#615d5c] to-[#292727] px-3 py-1 text-[12px] tracking-widest font-medium text-white backdrop-blur-3xl">
             {pathname === '/' ? 'TAIWANESE' : 'JAPANESE'}
           </span>
         </a>
@@ -122,6 +122,14 @@ const { pathname } = Astro.url;
 
   </nav>
 </header>
+
+<style>
+  .header-block {
+    background-color: rgba(255, 255, 255, 0.4); /* 透明度を調整 */
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease-in-out;
+  }
+</style>
 
 <script is:inline>
   document.querySelectorAll(".dropdown-button").forEach((button) => {
@@ -141,6 +149,18 @@ const { pathname } = Astro.url;
         header.classList.add("header-sticky");
       } else {
         header.classList.remove("header-sticky");
+      }
+    });
+  });
+
+  // scrollしたら、メニューは透過させる
+  document.addEventListener("astro:page-load", () => {
+    const header = document.querySelector(".header");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 0) {
+        header.classList.remove("header-transparent");
+      } else {
+        header.classList.add("header-transparent");
       }
     });
   });
