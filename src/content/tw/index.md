@@ -10,7 +10,7 @@ banner:
 
 ##key features
 key_features:
-  title: "公司策略"
+  title: Features
   description: 機能食品跟高階護膚品兩者相輔相成，內服及外用延續細胞生命力，不斷跟世界接軌，選用世界頂尖、升級原料，不妥協，不落後。
 
   # works
@@ -32,7 +32,7 @@ key_features:
 
 #service
 service:
-  title: 原料供應及需求
+  title: Service
   description: 安全的分析及認證
   service_list:
     - title: 出廠保證
@@ -54,7 +54,7 @@ service:
 
 #strengths
 strengths:
-  title: 產品認證
+  title: Strengths
   image_url: /images/kyoukai.png
   description: 我們的產品已獲得日本乳酸菌學會的正式認證，並成為該學會的會員。這項認證證明了我們產品的品質和可信度，並顯示出其得到了站在乳酸菌研究最前沿的專家的支持。作為學會的會員，我們將分享最新的研究成果，並致力於推動益生菌領域的發展。
 
@@ -79,7 +79,7 @@ event:
 
 #global_pro
 global_pro:
-  title: 國際專家接軌
+  title: Global
   description: 與國際專家合作是融入全球觀點和最新研究成果的重要策略。這種合作能促進知識分享和共同研究，提升技術創新和研究品質
   pro_list:
     - author: 英國專家
@@ -100,7 +100,7 @@ global_pro:
 
 #business
 business:
-  title: 行銷各國
+  title: Business
   description: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
   images:
     - "/images/landing_pic7.jpg"
