@@ -91,7 +91,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     >
       <div className="relative w-full">
         <div
-          className="flex w-full overflow-x-auto overscroll-x-contain py-10 md:py-20 scroll-smooth [scrollbar-width:none]"
+          className="flex w-full overflow-x-auto overscroll-x-contain py-10 md:pt-10 md:pb-20 scroll-smooth [scrollbar-width:none]"
           ref={carouselRef}
           onScroll={checkScrollability}
         >
@@ -202,7 +202,7 @@ export const Card = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="bg-black/80 backdrop-blur-lg w-full fixed inset-0"
+              className="bg-black/80 backdrop-blur-lg w-full fixed inset-0 hover:cursor-pointer"
             />
             <motion.div
               initial={{ opacity: 0 }}
