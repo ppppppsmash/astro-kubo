@@ -8,13 +8,29 @@ const { image } = banner;
 <section id="banner" class="relative scroll-mt-24">
     <div class="row">
       <div class="w-full h-full">
-        <div class="w-full h-full">
-          <img src={image} alt="banner" class="w-full h-full object-cover" />
+        <div class="w-full h-[100svh]">
+          <div class="bg-black/10 absolute top-0 left-0 w-full h-full" />
+          <img src={image} alt="banner" class="w-full h-full object-cover  animate-scale-down" />
         </div>
 
         <div class="absolute top-0 left-0 w-full h-full">
-          <HeaderTitle client:load />
+          <!-- <HeaderTitle client:load /> -->
         </div>
       </div>
     </div>
 </section>
+
+<style>
+  @keyframes scaleDown {
+    from {
+      transform: scale(1.1);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  .animate-scale-down {
+    animation: scaleDown 5s ease-out forwards;
+  }
+</style>
