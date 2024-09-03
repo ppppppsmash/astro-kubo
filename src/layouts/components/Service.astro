@@ -2,7 +2,10 @@
 const { service } = Astro.props;
 const { title, description, service_list } = service;
 import { ServiceIcons } from './ServiceIcons';
+
+import { CarouselComponent } from './Carousel';
 ---
+
 
 <section id="service" class="section services scroll-mt-24">
   <div class="container">
@@ -13,19 +16,7 @@ import { ServiceIcons } from './ServiceIcons';
       </div>
     </div>
     <div class="row mt-14 text-center">
-      {
-        service_list.map((item: any, index: number) => (
-          <div class="mb-10 sm:col-6 lg:col-4">
-            <div class="relative">
-              <span class="benifit-icon absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[28%]">
-                <ServiceIcons item={item} />
-              </span>
-            </div>
-            <h3 class="h4 mb-4 mt-8">{item.title}</h3>
-            <p>{item.content}</p>
-          </div>
-        ))
-      }
+      <CarouselComponent items={service_list} client:load />
     </div>
   </div>
 </section>
