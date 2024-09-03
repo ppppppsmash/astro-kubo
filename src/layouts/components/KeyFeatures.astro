@@ -1,14 +1,10 @@
 ---
-import { markdownify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
-import HomapageFeature from "@/layouts/function-components/HomapageFeature";
 
 import Bubble from "@/components/ui/Bubble.astro";
 
 const { key_features } = Astro.props;
 const { title, description, feature_list } = key_features;
-
-import { AiFillCheckCircle } from "react-icons/ai";
 ---
 
 <section id="features" class="section key-feature relative scroll-mt-24">
@@ -19,48 +15,49 @@ import { AiFillCheckCircle } from "react-icons/ai";
   <div class="container">
     <div class="row">
       <div class="mx-auto text-center lg:col-8">
-        <h2 class="text-3xl md:text-5xl font-medium">{title}</h2>
+        <h2 class="text-3xl md:text-5xl font-bold">{title}</h2>
         <p class="mt-4">{description}</p>
       </div>
     </div>
-    {
-      feature_list.map((item: any, index: number) => (
-        <div class="gx-5 row mt-16 items-center first:mt-12">
-          <div
-            class={`lg:col-7 ${
-              index % 2 === 0 ? "lg:order-1" : "lg:order-0"
-            }`}
-          >
-            <div class="relative">
-              <Image
-                class="w-full object-contain rounded-2xl"
-                alt="service"
-                width={473}
-                height={286}
-                src={item.image}
-              />
-            </div>
-          </div>
-          <div
-            class={`mt-6 lg:col-5 lg:mt-0 ${
-              index % 2 === 0 ? "lg:order-0" : "lg:order-1"
-            }`}
-          >
-            <div class="text-container">
-              <h2 class="text-2xl font-medium">{item.title}</h2>
 
-              <ul class="mt-6 text-dark lg:-ml-4">
-                {item.list.map((list: any) => (
-                  <li class="mb-2 flex items-center rounded px-4">
-                    <AiFillCheckCircle className="mr-3 fill-primary text-white" />
-                    {list}
+    <ul class="flex justify-between tablet:gap-14">
+      <li class="w-full list-none">
+        <ul class="flex justify-between tablet:gap-14 mt-10">
+          <li class="w-full list-none">
+            <ul class={`grid gap-11 tablet:gap-14 ${
+              feature_list.length === 1 ? 'grid-cols-1' :
+              feature_list.length === 2 ? 'sm:grid-cols-2' :
+              feature_list.length === 3 ? 'sm:grid-cols-3' :
+              'sm:grid-cols-4'
+            } grid-cols-1`}>
+              {
+                feature_list.map((item: any, index: number) => (
+                  <li class="list-none">
+                    <div class="grid gap-3.5">
+                      <Image
+                        class="w-full"
+                        alt="service"
+                        width={473}
+                        height={286}
+                        src={item.image}
+                      />
+                    </div>
+                    <p class="text-lg font-bold text-dark mt-2">{item.title}</p>
+
+                    <ul class="mt-6 text-dark lg:-ml-4">
+                      {item.list.map((list: any) => (
+                        <li class="mb-2 flex items-center rounded px-4">
+                          {list}
+                        </li>
+                      ))}
+                    </ul>
                   </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      ))
-    }
+                ))
+              }
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </section>
