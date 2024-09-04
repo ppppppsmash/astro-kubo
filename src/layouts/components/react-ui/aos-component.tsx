@@ -10,7 +10,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export default function AosComponent({
-  children
+  children,
 }: {
   children: React.ReactNode
 }) {
@@ -20,7 +20,7 @@ export default function AosComponent({
 
   return (
     <div
-      data-aos="fade-right"
+      data-aos="fade-up"
       data-aos-delay="50"
       data-aos-duration="1000"
       data-aos-once="false"
