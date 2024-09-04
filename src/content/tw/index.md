@@ -106,17 +106,17 @@ global_pro:
 business:
   title: Business
   description: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
-  images:
-    - "/images/landing_pic7.jpg"
-    - "/images/landing_pic8.jpg"
-    - "/images/landing_pic9.jpg"
   business_list:
     - title: 日本
-      content: 全通路均可銷售，可洽詢通路及區域經銷
+      description: 全通路均可銷售，可洽詢通路及區域經銷
+      image: /images/landing_pic7.jpg
     - title: 海外分公司駐點
-      content: 中國 台灣 新加坡 馬來西亞 越南 建立亞太行銷網絡，可洽詢亞太通路及分區經銷
+      description: 中國 台灣 新加坡 馬來西亞 越南 建立亞太行銷網絡，可洽詢亞太通路及分區經銷
+      image: /images/landing_pic8.jpg
     - title: 聯名合作
-      content: 日本或海外通路可洽合作
+      description: 日本或海外通路可洽合作
+      image: /images/landing_pic9.jpg
     - title: ODM合作
-      content: 提供專業原料配方、包裝整體專業建議規劃
+      description: 提供專業原料配方、包裝整體專業建議規劃
+      image: /images/landing_pic10.jpg
 ---

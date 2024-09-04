@@ -2,57 +2,20 @@
 import { markdownify } from "@/lib/utils/textConverter";
 
 import Bubble from "@/components/ui/Bubble.astro";
+import { StickyScrollReveal } from "@/layouts/components/StickyScroll";
 
 const { business } = Astro.props;
-const { title, description, images, business_list } = business;
+const { title, image, business_list } = business;
 ---
 
 <section id="business" class="section scroll-mt-24">
   <div class="container">
-    <div class="row justify-center text-center">
-      <div class="col-8">
-        <h2 class="text-3xl md:text-5xl font-bold" set:html={markdownify(title)} />
-      </div>
-    </div>
-
-    <div class="relative">
-      <div class="row" id="photo-gallery">
-        {
-          images.map((image: any) => (
-            <div class="picture-item col-6 mt-12">
-              {" "}
-              <img class="w-full" src={image} alt="" />
-            </div>
-          ))
-        }
-
-        <div class="js-shuffle-sizer col-1"></div>
-      </div>
-      <Bubble
-        class="absolute -bottom-8 left-0 -z-[1]"
-        childrenClass="before:w-[120px] before:h-[80px]"
+    <div class="mx-auto lg:col-8">
+      <h2 class="text-3xl md:text-5xl font-bold text-center">{title}</h2>
+      <StickyScrollReveal
+        business_list={business_list}
+        client:load
       />
-      <Bubble
-        class="absolute right-0 sm:right-0 bottom-24 h-16 w-16 z-40"
-        childrenClass="before:w-[24px] before:h-[24px] sm:before:w-[200px] sm:before:h-[200px]"
-      />
-    </div>
-    <div class="row mt-14">
-      {
-        business_list.map((item: any, i: number) => (
-          <div class="mb-8 sm:col-6 lg:col-4">
-            <div class="rounded-xl bg-white p-6 shadow-lg lg:p-8">
-              <div class="gradient-number relative inline-block">
-                <span class="bg-gradient absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                  {i > 8 ? i + 1 : `0${i + 1}`}
-                </span>
-              </div>
-              <h5 class="text-lg font-semibold my-6">{item.title}</h5>
-              <p>{item.content}</p>
-            </div>
-          </div>
-        ))
-      }
     </div>
   </div>
 </section>

@@ -10,6 +10,7 @@ export const StickyScroll = ({
 }: {
   content: {
     title: string;
+    image: string;
     description: string;
     content?: React.ReactNode | any;
   }[];
@@ -18,8 +19,6 @@ export const StickyScroll = ({
   const [activeCard, setActiveCard] = React.useState(0);
   const ref = useRef<any>(null);
   const { scrollYProgress } = useScroll({
-    // uncomment line 22 and comment line 23 if you DONT want the overflow container and want to have it change on the entire page scroll
-    // target: ref
     container: ref,
     offset: ["start start", "end start"],
   });
@@ -40,23 +39,26 @@ export const StickyScroll = ({
     setActiveCard(closestBreakpointIndex);
   });
 
+  const backgroundImages = content.map((item) => item.image);
+
   const backgroundColors = [
-    "var(--slate-900)",
-    "var(--black)",
-    "var(--neutral-900)",
+    ...backgroundImages
   ];
-  const linearGradients = [
-    "linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))",
-    "linear-gradient(to bottom right, var(--pink-500), var(--indigo-500))",
-    "linear-gradient(to bottom right, var(--orange-500), var(--yellow-500))",
-  ];
+  // const linearGradients = [
+  //   "linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))",
+  //   "linear-gradient(to bottom right, var(--pink-500), var(--indigo-500))",
+  //   "linear-gradient(to bottom right, var(--orange-500), var(--yellow-500))",
+  // ];
 
   const [backgroundGradient, setBackgroundGradient] = useState(
-    linearGradients[0]
+    // linearGradients[0]
+    backgroundImages[0]
   );
 
+  console.log(backgroundGradient);
+
   useEffect(() => {
-    setBackgroundGradient(linearGradients[activeCard % linearGradients.length]);
+    setBackgroundGradient(backgroundImages[activeCard % backgroundImages.length]);
   }, [activeCard]);
 
   return (
@@ -78,7 +80,7 @@ export const StickyScroll = ({
                 animate={{
                   opacity: activeCard === index ? 1 : 0.3,
                 }}
-                className="text-2xl font-bold text-slate-100"
+                className="text-2xl font-bold text-dark"
               >
                 {item.title}
               </motion.h2>
@@ -89,7 +91,7 @@ export const StickyScroll = ({
                 animate={{
                   opacity: activeCard === index ? 1 : 0.3,
                 }}
-                className="text-kg text-slate-300 max-w-sm mt-10"
+                className="text-kg text-dark max-w-sm mt-10"
               >
                 {item.description}
               </motion.p>
@@ -99,9 +101,10 @@ export const StickyScroll = ({
         </div>
       </div>
       <div
-        style={{ background: backgroundGradient }}
+        style={{ backgroundImage: `url(${backgroundGradient})` }}
         className={cn(
-          "hidden lg:block h-60 w-80 rounded-md bg-white sticky top-10 overflow-hidden",
+          "hidden lg:block h-60 w-80 sticky top-10 overflow-hidden",
+          "bg-cover bg-center",
           contentClassName
         )}
       >

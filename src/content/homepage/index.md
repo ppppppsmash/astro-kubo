@@ -96,17 +96,17 @@ global_pro:
 business:
   title: Business
   description: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
-  images:
-    - "/images/landing_pic7.jpg"
-    - "/images/landing_pic8.jpg"
-    - "/images/landing_pic9.jpg"
   business_list:
     - title: 日本
-      content: 全ての販売チャネルで販売可能であり、販売チャネルや地域ディーラーについてはお問い合わせください
+      description: 全ての販売チャネルで販売可能であり、販売チャネルや地域ディーラーについてはお問い合わせください
+      image: /images/landing_pic7.jpg
     - title: 海外の支社を設立
-      content: 中国、台湾、シンガポール、マレーシア、ベトナムにおいてアジア太平洋地域のマーケティングネットワークを構築し、アジア太平洋地域の販売チャネルや地域ディーラーについてはお問い合わせください
+      description: 中国、台湾、シンガポール、マレーシア、ベトナムにおいてアジア太平洋地域のマーケティングネットワークを構築し、アジア太平洋地域の販売チャネルや地域ディーラーについてはお問い合わせください
+      image: /images/landing_pic8.jpg
     - title: コラボ開発
-      content: 日本または海外の販売チャネルとの協力を検討可能です
+      description: 日本または海外の販売チャネルとの協力を検討可能です
+      image: /images/landing_pic9.jpg
     - title: ODM製品の開発
-      content: 原料配合と包装の全体的な専門的な提案を提供します
+      description: 原料配合と包装の全体的な専門的な提案を提供します
+      image: /images/landing_pic10.jpg
 ---
