@@ -119,4 +119,10 @@ business:
     - title: ODM合作
       description: 提供專業原料配方、包裝整體專業建議規劃
       image: /images/landing_pic10.jpg
+
+#message
+message:
+  title: Message
+  heading: From the CEO
+  content: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
 ---

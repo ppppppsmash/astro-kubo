@@ -9,6 +9,9 @@ import AutoImport from "astro-auto-import";
 import { defineConfig, squooshImageService } from "astro/config";
 import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
+import remarkDirective from "remark-directive";
+import remarkBreaks from "remark-breaks";
+import mdx from '@astrojs/mdx';
 import config from "./src/config/config.json";
 
 // https://astro.build/config
@@ -44,18 +47,21 @@ export default defineConfig({
         "@/shortcodes/Tabs",
       ],
     }),
-    mdx(),
+    mdx()
   ],
   markdown: {
-    remarkPlugins: [
-      remarkToc,
-      [
-        remarkCollapse,
-        {
-          test: "Table of contents",
-        },
-      ],
-    ],
+    // remarkPlugins: [
+    //   remarkBreaks,
+    //   remarkToc,
+    //   remarkDirective,
+    //   [
+    //     remarkCollapse,
+    //     {
+    //       test: "Table of contents",
+    //     },
+    //   ],
+    // ],
+    remarkPlugins: [remarkBreaks, remarkToc, remarkDirective, remarkCollapse],
     shikiConfig: {
       theme: "one-dark-pro",
       wrap: true,

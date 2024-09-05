@@ -1,0 +1,26 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+const { message } = Astro.props;
+//const { title, heading, content} = message;
+const { Content } = await message.render();
+---
+
+<section id="business" class="section scroll-mt-24">
+  <div class="container">
+    <div class="mx-auto">
+      <Content />
+    </div>
+  </div>
+</section>
+
+<script>
+  import Shuffle from "shufflejs";
+  const element = document.getElementById("photo-gallery");
+  const sizer = element?.querySelector(".js-shuffle-sizer");
+  // Assumes you're using the UMD version of Shuffle (for example, from unpkg.com).
+  const shuffleInstance = new Shuffle(element as HTMLElement, {
+    itemSelector: ".picture-item",
+    sizer: sizer as HTMLElement,
+    columnWidth: 1,
+  });
+</script>

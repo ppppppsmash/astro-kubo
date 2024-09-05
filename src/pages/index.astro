@@ -7,12 +7,14 @@ import Strengths from "@/components/Strengths.astro";
 import Event from "@/layouts/components/Event.astro";
 import GlobalPro from "@/layouts/components/GlobalPro.astro";
 import Business from "@/layouts/components/Business.astro";
+import Message from "@/layouts/components/Message.astro";
 
 import AosComponent from "@/layouts/components/react-ui/aos-component";
 
 import { getEntry } from "astro:content";
 
 const homepage = await getEntry("homepage", "index");
+const messageMDX = await getEntry("homepage", "message");
 
 // src/content/homapge/index.md
 const { banner, key_features, service, strengths, event, global_pro, business } = homepage.data;
@@ -49,5 +51,9 @@ const { banner, key_features, service, strengths, event, global_pro, business } 
   <!-- business -->
   <AosComponent client:load>
     <Business business={business} />
+  </AosComponent>
+
+  <AosComponent client:load>
+    <Message message={messageMDX} />
   </AosComponent>
 </Base>

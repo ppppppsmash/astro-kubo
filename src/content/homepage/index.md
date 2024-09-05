@@ -109,4 +109,12 @@ business:
     - title: ODM製品の開発
       description: 原料配合と包装の全体的な専門的な提案を提供します
       image: /images/landing_pic10.jpg
+
+#message
+message:
+  title: Message
+  heading: From the CEO
+  content: 
+    大家好，我是黃惠玲angela。
+    日本久保生医的誕生，是我人生中重要的目標之一，在這裡，我將集結一生所學、所識，毫無保留，並且扎根研究、國際專家接軌，淺顯易懂的教給相信我們的您，一起敬愛生命，享受旅程。
 ---
