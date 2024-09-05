@@ -50,18 +50,17 @@ export default defineConfig({
     mdx()
   ],
   markdown: {
-    // remarkPlugins: [
-    //   remarkBreaks,
-    //   remarkToc,
-    //   remarkDirective,
-    //   [
-    //     remarkCollapse,
-    //     {
-    //       test: "Table of contents",
-    //     },
-    //   ],
-    // ],
-    remarkPlugins: [remarkBreaks, remarkToc, remarkDirective, remarkCollapse],
+    remarkPlugins: [
+      remarkBreaks,
+      remarkToc,
+      remarkDirective,
+      [
+        remarkCollapse,
+        {
+          test: "Table of contents",
+        },
+      ],
+    ],
     shikiConfig: {
       theme: "one-dark-pro",
       wrap: true,
