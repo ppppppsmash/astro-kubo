@@ -14,6 +14,7 @@ import AosComponent from "@/layouts/components/react-ui/aos-component";
 import { getEntry } from "astro:content";
 
 const homepage = await getEntry("tw", "index");
+const messageMDX = await getEntry("tw", "message");
 
 // src/content/homapge/index.md
 const { banner, key_features, service, strengths, event, global_pro, business, message } = homepage.data;
@@ -53,7 +54,7 @@ const { banner, key_features, service, strengths, event, global_pro, business, m
   </AosComponent>
 
   <AosComponent client:load>
-    <Message message={message} />
+    <Message message={messageMDX} />
   </AosComponent>
   
 </Base>
