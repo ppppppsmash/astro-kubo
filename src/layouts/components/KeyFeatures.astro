@@ -6,10 +6,6 @@ const { title, description, feature_list } = key_features;
 ---
 
 <section id="features" class="section key-feature relative scroll-mt-24">
-  <!-- <Bubble
-    class="absolute -z-[100] top-0 left-0"
-    childrenClass="before:w-[80px] before:h-[80px]"
-  /> -->
   <div class="container">
     <div class="row">
       <div class="mx-auto text-center lg:col-8">
@@ -30,26 +26,32 @@ const { title, description, feature_list } = key_features;
             } grid-cols-1`}>
               {
                 feature_list.map((item: any, index: number) => (
-                  <li class="list-none">
-                    <div class="grid gap-3.5">
-                      <Image
-                        class="w-full"
-                        alt="service"
-                        width={473}
-                        height={286}
-                        src={item.image}
-                      />
-                    </div>
-                    <p class="text-lg font-bold text-dark mt-2">{item.title}</p>
+                  <div>
+                    <li class="list-none group relative">
+                      <div class="grid gap-3.5">
+                        <Image
+                          class="w-full"
+                          alt="service"
+                          width={473}
+                          height={286}
+                          src={item.image}
+                        />
+                      </div>
+                      
 
-                    <ul class="mt-6 text-dark lg:-ml-4">
-                      {item.list.map((list: any) => (
-                        <li class="mb-2 flex items-center rounded px-4">
-                          {list}
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
+                      <ul class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-70 text-white
+                        p-4 opacity-0 group-hover:opacity-80 transition-opacity duration-500 ease-in-out overflow-y-auto
+                        flex flex-col justify-center text-xs md:text-lg"
+                      >
+                        {item.list.map((list: any) => (
+                          <li class="mb-2 flex items-center rounded px-4">
+                            {list}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                    <p class="text-lg font-bold text-dark mt-2">{item.title}</p>
+                  </div>
                 ))
               }
             </ul>
