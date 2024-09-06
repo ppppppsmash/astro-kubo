@@ -1,5 +1,4 @@
 ---
-import { markdownify } from "@/lib/utils/textConverter";
 const { message } = Astro.props;
 //const { title, heading, content} = message;
 const { Content } = await message.render();
@@ -8,19 +7,101 @@ const { Content } = await message.render();
 <section id="business" class="section scroll-mt-24">
   <div class="container">
     <div class="mx-auto">
-      <Content />
+      <div class="content-wrapper">
+        <div class="content-preview text-3xl font-bold text-center">Message From CEO
+        </div>
+        <div class="content-full hidden">
+          <Content />
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<style>
+  .content-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .content-preview {
+    cursor: pointer;
+  }
+
+  .content-full,
+  .content-preview {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+  }
+
+  .hidden {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  @keyframes slideScaleIn {
+    from {
+      transform: translateX(-100%) scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideScaleOut {
+    from {
+      transform: translateX(0) scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(100%) scale(0.8);
+      opacity: 0;
+    }
+  }
+
+  .slide-scale-in {
+    animation: slideScaleIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .slide-scale-out {
+    animation: slideScaleOut 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+  }
+</style>
+
 <script>
-  import Shuffle from "shufflejs";
-  const element = document.getElementById("photo-gallery");
-  const sizer = element?.querySelector(".js-shuffle-sizer");
-  // Assumes you're using the UMD version of Shuffle (for example, from unpkg.com).
-  const shuffleInstance = new Shuffle(element as HTMLElement, {
-    itemSelector: ".picture-item",
-    sizer: sizer as HTMLElement,
-    columnWidth: 1,
+  const contentWrapper = document.querySelector('.content-wrapper');
+  const contentPreview = document.querySelector('.content-preview');
+  const contentFull = document.querySelector('.content-full');
+
+  contentWrapper?.addEventListener('mouseenter', () => {
+    contentPreview?.classList.add('slide-scale-out');
+    contentFull?.classList.remove('hidden');
+    contentFull?.classList.add('slide-scale-in');
+  });
+
+  contentWrapper?.addEventListener('mouseleave', () => {
+    contentFull?.classList.add('slide-scale-out');
+    contentPreview?.classList.remove('hidden');
+    contentPreview?.classList.add('slide-scale-in');
+  });
+
+  contentPreview?.addEventListener('animationend', () => {
+    if (contentPreview.classList.contains('slide-scale-out')) {
+      contentPreview.classList.add('hidden');
+      contentPreview.classList.remove('slide-scale-out');
+    }
+  });
+
+  contentFull?.addEventListener('animationend', () => {
+    if (contentFull.classList.contains('slide-scale-out')) {
+      contentFull.classList.add('hidden');
+      contentFull.classList.remove('slide-scale-out');
+    }
   });
 </script>
