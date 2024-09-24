@@ -2,20 +2,18 @@
 import { HeaderTitle } from "@/layouts/components/react-ui/header-title";
 
 const { banner } = Astro.props;
-const { image } = banner;
+const { image, image_sp } = banner;
 ---
 
 <section id="banner" class="relative scroll-mt-24">
     <div class="row">
       <div class="w-full h-full">
-        <div class="w-full h-[100svh]">
+        <div class="w-full md:h-[100svh]">
           <div class="bg-black/10 absolute top-0 left-0 w-full h-full" />
-          <img src={image} alt="banner" class="w-full h-full object-cover  animate-scale-down" />
+          <img src={image} alt="banner" class="w-full md:h-full md:object-cover animate-scale-down" />
         </div>
 
-        <div class="absolute top-0 left-0 w-full h-full">
-          <!-- <HeaderTitle client:load /> -->
-        </div>
+        <div class="absolute top-0 left-0 w-full h-full" />
       </div>
     </div>
 </section>
