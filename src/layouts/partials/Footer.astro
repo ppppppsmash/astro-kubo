@@ -2,7 +2,6 @@
 import Logo from "@/components/Logo.astro";
 import Social from "@/components/Social.astro";
 import config from "@/config/config.json";
-import menu from "@/config/menu.json";
 import social from "@/config/social.json";
 import { markdownify } from "@/lib/utils/textConverter";
 const { copyright, corp_name, location, email, phone, footer_description } = config.params;
@@ -10,20 +9,16 @@ const { copyright, corp_name, location, email, phone, footer_description } = con
 
 <footer class="footer bg-[#F1F1F1]">
   <div class="container">
-    <div class="pb-10 pt-[52px]">
+    <div class="pb-10 pt-[52px] flex flex-wrap justify-between">
       <div class="col-12 mt-12 md:col-6 lg:col-4">
         <Logo />
         <p class="mt-6">
           {footer_description}
         </p>
       </div>
-      <div class="col-12 mt-12 md:col-6 lg:col-4">
-        <h6>Socials</h6>
 
-        <Social source={social} className="social-icons mt-4 lg:mt-6" />
-      </div>
       <div class="col-12 mt-12 md:col-6 lg:col-4">
-        <h6>Location & Contact</h6>
+        <h6 class="text-md font-thin">Corp. Infomation</h6>
         <ul>
           <li class="mb-2">{corp_name}</li>
           <li class="mb-2">{location}</li>
@@ -38,6 +33,11 @@ const { copyright, corp_name, location, email, phone, footer_description } = con
             >
           </li>
         </ul>
+
+        <div class="col-12 mt-12 md:col-6 lg:col-4">
+          <h6 class="text-md font-thin">media</h6>
+          <Social source={social} className="social-icons mt-4 lg:mt-6" />
+        </div>
       </div>
     </div>
   </div>

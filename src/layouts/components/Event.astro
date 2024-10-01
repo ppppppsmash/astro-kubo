@@ -12,7 +12,7 @@ const { title, description, projects } = event;
       </div>
     </div>
     <div class="col-12 ">
-      <div>
+      <div class="flex flex-wrap">
         {
           projects.map((item: any, index: number) => (
             <div class="lg:col-6">
@@ -22,7 +22,7 @@ const { title, description, projects } = event;
                 } `}
               >
                 <div>
-                  <h3 class="h5 font-primary">{item.title}</h3>
+                  <h3 class="h5 font-semibold">{item.title}</h3>
                   <p class="mt-4">{item.content} </p>
                 </div>
               </div>
