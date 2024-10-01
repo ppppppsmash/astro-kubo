@@ -2,8 +2,7 @@
 const { service } = Astro.props;
 const { title, description, service_list } = service;
 
-// import { CarouselComponent } from './Carousel';
-import { InfiniteMovingCardsDemo } from './InfiniteMovingCardsComponent';
+import { InfiniteMovingCardsComponent } from './InfiniteMovingCardsComponent';
 ---
 
 
@@ -16,7 +15,7 @@ import { InfiniteMovingCardsDemo } from './InfiniteMovingCardsComponent';
       </div>
     </div>
     <div class="row mt-8">
-      <InfiniteMovingCardsDemo service_list={service_list} client:load />
+      <InfiniteMovingCardsComponent service_list={service_list} client:load />
     </div>
   </div>
 </section>

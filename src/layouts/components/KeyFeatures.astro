@@ -27,6 +27,7 @@ const { title, description, feature_list } = key_features;
               {
                 feature_list.map((item: any, index: number) => (
                   <div>
+                    <p class="text-lg font-medium text-dark mt-2">{item.title}</p>
                     <li class="list-none group relative">
                       <div class="grid gap-3.5">
                         <Image
@@ -50,7 +51,6 @@ const { title, description, feature_list } = key_features;
                         ))}
                       </ul>
                     </li>
-                    <p class="text-lg font-bold text-dark mt-2">{item.title}</p>
                   </div>
                 ))
               }

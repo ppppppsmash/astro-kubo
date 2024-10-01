@@ -4,7 +4,7 @@ import * as Icon from "react-feather";
 const Projects = ({ projects }) => {
   return (
     <div className="col-12 ">
-      <div className="row">
+      <div>
         {projects.map((item, i) => {
           const FeatherIcon = Icon[humanize(item.icon)];
           return (
