@@ -11,8 +11,10 @@ import 'aos/dist/aos.css';
 
 export default function AosComponent({
   children,
+  aosType="fade-up"
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
+  aosType?: string,
 }) {
   useEffect(() => {
     AOS.init();
@@ -20,10 +22,10 @@ export default function AosComponent({
 
   return (
     <div
-      data-aos="fade-up"
+      data-aos={aosType}
       data-aos-delay="50"
       data-aos-duration="1000"
-      data-aos-once="false"
+      data-aos-once="true"
     >
       {children}
     </div>
