@@ -1,15 +1,19 @@
 ---
 const { event } = Astro.props;
 const { title, description, projects } = event;
+
+import { BackgroundLines } from "@/layouts/components/BackgroundLines";
 ---
 
 <section id="event" class="section services scroll-mt-24">
   <div class="container">
     <div class="row">
-      <div class="mx-auto text-center lg:col-8">
-        <h2 class="text-lg md:text-2xl font-medium">{title}</h2>
-        <p class="mt-4">{description}</p>
-      </div>
+      <BackgroundLines client:load>
+        <div class="mx-auto text-center lg:col-8">
+          <h2 class="text-lg md:text-2xl font-medium">{title}</h2>
+          <p class="mt-4">{description}</p>
+        </div>
+      </BackgroundLines>
     </div>
     <div class="col-12 ">
       <div class="flex flex-wrap">
