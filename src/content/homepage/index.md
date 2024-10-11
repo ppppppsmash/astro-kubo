@@ -50,12 +50,6 @@ service:
       color: "#FFB347"
       icon: IconFlare  #icon package react-feather-icon [https://feathericons.com]
 
-#strengths
-strengths:
-  title: 弊社の強み / Strengths
-  image_url: /images/kyoukai.png
-  description: 弊社の製品は、日本乳酸菌学会により正式に認証を受け、さらに会員として登録されています。この認証は、製品の品質と信頼性を証明するものであり、乳酸菌研究の最前線に立つ専門家たちからの支持を得ていることを示しています。学会の会員として、弊社は最新の研究成果を共有し、プロバイオティクス分野の発展に貢献してまいります。
-
 #event
 event:
   title: 技術の精進を求め、専門家と連携する

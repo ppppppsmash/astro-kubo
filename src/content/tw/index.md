@@ -56,17 +56,10 @@ service:
       src: /images/landing_pic4.jpg
       icon: IconFlare  #icon package react-feather-icon [https://feathericons.com]
 
-#strengths
-strengths:
-  title: Strengths
-  image_url: /images/kyoukai.png
-  description: 我們的產品已獲得日本乳酸菌學會的正式認證，並成為該學會的會員。這項認證證明了我們產品的品質和可信度，並顯示出其得到了站在乳酸菌研究最前沿的專家的支持。作為學會的會員，我們將分享最新的研究成果，並致力於推動益生菌領域的發展。
-
-
 #event
 event:
   title: 精益求精 步步扎根踏實 專家接軌
-  description: 產品認證相關信息（需要補充）
+  description: 產品認證相關信息
   projects:
     - title: 日本乳酸菌学会
       content: 經過層層審核成為日本乳酸菌学会榮譽會員， 協會會員居多是醫生背景在定期研討會中獲得廣大臨床經驗及數據，益生菌在未來趨勢可以逆轉疾病對抗微生物、病毒對全球人類的傷害

@@ -55,8 +55,6 @@ export const StickyScroll = ({
     backgroundImages[0]
   );
 
-  console.log(backgroundGradient);
-
   useEffect(() => {
     setBackgroundGradient(backgroundImages[activeCard % backgroundImages.length]);
   }, [activeCard]);
