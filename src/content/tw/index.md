@@ -61,9 +61,9 @@ event:
   title: 精益求精 步步扎根踏實 專家接軌
   description: 產品認證相關信息
   projects:
-    - title: 日本乳酸菌学会
-      content: 經過層層審核成為日本乳酸菌学会榮譽會員， 協會會員居多是醫生背景在定期研討會中獲得廣大臨床經驗及數據，益生菌在未來趨勢可以逆轉疾病對抗微生物、病毒對全球人類的傷害
-      icon: lock  #icon package react-feather-icon [https://feathericons.com/]
+    # - title: 日本乳酸菌学会
+    #   content: 經過層層審核成為日本乳酸菌学会榮譽會員， 協會會員居多是醫生背景在定期研討會中獲得廣大臨床經驗及數據，益生菌在未來趨勢可以逆轉疾病對抗微生物、病毒對全球人類的傷害
+    #   icon: lock  #icon package react-feather-icon [https://feathericons.com/]
     - title: 聘請海內外專家
       content: 我們致力於聘請國際專家，運用來自全球視角的意見與見解，進一步推動益生菌的研究。透過這些努力，我們將能加深對於不同文化與地區微生物利用的理解，並提供更有效的健康改善方案。
       icon: tv  #icon package react-feather-icon [https://feathericons.com/]
