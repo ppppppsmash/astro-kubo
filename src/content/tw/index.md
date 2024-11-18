@@ -104,7 +104,7 @@ business:
       description: 全通路均可銷售，可洽詢通路及區域經銷
       image: /images/landing_pic7.jpg
     - title: 海外分公司駐點
-      description: 中國 台灣 新加坡 馬來西亞 越南 建立亞太行銷網絡，可洽詢亞太通路及分區經銷
+      description: 台灣 新加坡 馬來西亞 越南 建立亞太行銷網絡，可洽詢亞太通路及分區經銷
       image: /images/landing_pic8.jpg
     - title: 聯名合作
       description: 日本或海外通路可洽合作
