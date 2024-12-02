@@ -23,6 +23,7 @@
     "astro-auto-import": "^0.4.2",
     "astro-font": "^0.0.77",
     "clsx": "^2.1.1",
+    "cobe": "^0.6.3",
     "date-fns": "^3.6.0",
     "disqus-react": "^1.1.5",
     "framer-motion": "^11.3.30",
