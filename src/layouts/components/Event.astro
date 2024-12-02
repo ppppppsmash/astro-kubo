@@ -3,17 +3,20 @@ const { event } = Astro.props;
 const { title, description, projects } = event;
 
 import { BackgroundLines } from "@/layouts/components/BackgroundLines";
+import { Globe } from "@/layouts/components/react-ui/global-frame";
 ---
 
 <section id="event" class="section services scroll-mt-24">
   <div class="container">
-    <div class="row">
-      <BackgroundLines client:load>
-        <div class="mx-auto text-center lg:col-8">
-          <h2 class="text-lg md:text-2xl font-medium">{title}</h2>
-          <p class="mt-4">{description}</p>
-        </div>
-      </BackgroundLines>
+    <div class="row relative">
+      <div class="mx-auto text-center lg:col-8">
+        <h2 class="text-lg md:text-2xl font-medium">{title}</h2>
+        <p class="mt-4">{description}</p>
+      </div>
+      <div class="absolute -z-50 -bottom-64">
+        <Globe client:load />
+      </div>
+      
     </div>
     <div class="col-12 ">
       <div class="flex flex-wrap">
@@ -21,7 +24,7 @@ import { BackgroundLines } from "@/layouts/components/BackgroundLines";
           projects.map((item: any, index: number) => (
             <div class="lg:col-6">
               <div
-                class={`flex items-center space-x-4 rounded-lg bg-[#fafafa] px-6 py-8 lg:mt-6  ${
+                class={`flex items-center space-x-4 rounded-lg px-6 py-8 lg:mt-6 ${
                   projects.length - 1 === index ? "mb-0" : "mb-6 "
                 } `}
               >
