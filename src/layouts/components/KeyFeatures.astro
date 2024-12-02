@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 
+import { AnimatedPic } from "@/components/AnimatedPic";
+
 const { key_features } = Astro.props;
 const { title, description, feature_list } = key_features;
 ---
@@ -17,7 +19,7 @@ const { title, description, feature_list } = key_features;
     <ul class="flex justify-between tablet:gap-14">
       <li class="w-full list-none">
         <ul class="flex justify-between tablet:gap-14 mt-10">
-          <li class="w-full list-none">
+          <!-- <li class="w-full list-none">
             <ul class={`grid gap-11 tablet:gap-14 ${
               feature_list.length === 1 ? 'grid-cols-1' :
               feature_list.length === 2 ? 'sm:grid-cols-2' :
@@ -55,7 +57,9 @@ const { title, description, feature_list } = key_features;
                 ))
               }
             </ul>
-          </li>
+          </li> -->
+
+          <AnimatedPic feature_list={feature_list} client:load />
         </ul>
       </li>
     </ul>

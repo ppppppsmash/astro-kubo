@@ -3,25 +3,37 @@
 import React from "react";
 import { PinContainer } from "./react-ui/3d-pin";
 
-export function AnimatedPinDemo() {
+export function AnimatedPic({ feature_list }: { feature_list: any }) {
   return (
-    <div className="h-[40rem] w-full flex items-center justify-center ">
-      <PinContainer
-        title="/ui.aceternity.com"
-        href="https://twitter.com/mannupaaji"
-      >
-        <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-          <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
-            Aceternity UI
-          </h3>
-          <div className="text-base !m-0 !p-0 font-normal">
-            <span className="text-slate-500 ">
-              Customizable Tailwind CSS and Framer Motion Components.
-            </span>
+    <div className="h-[20rem] w-full flex items-center justify-center">
+      {
+        feature_list.map((item: any) => (
+          <div>
+            <p className="!m-0 font-bold pl-8">
+              {item.title}
+            </p>
+            <PinContainer
+              title={item.list}
+              href="https://twitter.com/mannupaaji"
+            >
+              <div className="flex basis-full flex-col tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] bg-transparent">
+                <div className="text-base !m-0 !p-0 font-normal">
+                </div>
+                <div className="flex flex-1 w-full">
+                  <img
+                    className="w-full"
+                    alt="features"
+                    width="473"
+                    height="286"
+                    src={item.image}
+                  />
+                </div>
+              </div>
+            </PinContainer>
           </div>
-          <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" />
-        </div>
-      </PinContainer>
+        ))
+      }
+
     </div>
   );
 }
