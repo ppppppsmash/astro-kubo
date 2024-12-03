@@ -5,16 +5,16 @@ import { PinContainer } from "./react-ui/3d-pin";
 
 export function AnimatedPic({ feature_list }: { feature_list: any }) {
   return (
-    <div className="h-[20rem] w-full flex items-center justify-center">
+    <div className="w-full md:flex items-center justify-center">
       {
         feature_list.map((item: any) => (
           <div>
-            <p className="!m-0 font-bold pl-8">
+            <p className="sm:!m-0 !mt-10 font-bold sm:pl-8 pl-14">
               {item.title}
             </p>
             <PinContainer
               title={item.list}
-              href="https://twitter.com/mannupaaji"
+              href=""
             >
               <div className="flex basis-full flex-col tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] bg-transparent">
                 <div className="text-base !m-0 !p-0 font-normal">

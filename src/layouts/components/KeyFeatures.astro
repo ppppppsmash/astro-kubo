@@ -19,46 +19,6 @@ const { title, description, feature_list } = key_features;
     <ul class="flex justify-between tablet:gap-14">
       <li class="w-full list-none">
         <ul class="flex justify-between tablet:gap-14 mt-10">
-          <!-- <li class="w-full list-none">
-            <ul class={`grid gap-11 tablet:gap-14 ${
-              feature_list.length === 1 ? 'grid-cols-1' :
-              feature_list.length === 2 ? 'sm:grid-cols-2' :
-              feature_list.length === 3 ? 'sm:grid-cols-3' :
-              'sm:grid-cols-4'
-            } grid-cols-1`}>
-              {
-                feature_list.map((item: any, index: number) => (
-                  <div>
-                    <p class="text-lg font-medium text-dark mt-2">{item.title}</p>
-                    <li class="list-none group relative">
-                      <div class="grid gap-3.5">
-                        <Image
-                          class="w-full"
-                          alt="service"
-                          width={473}
-                          height={286}
-                          src={item.image}
-                        />
-                      </div>
-                      
-
-                      <ul class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-70 text-white
-                        p-4 opacity-0 group-hover:opacity-80 transition-opacity duration-500 ease-in-out overflow-y-auto
-                        flex flex-col justify-center text-xs md:text-lg"
-                      >
-                        {item.list.map((list: any) => (
-                          <li class="mb-2 flex items-center rounded px-4">
-                            {list}
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  </div>
-                ))
-              }
-            </ul>
-          </li> -->
-
           <AnimatedPic feature_list={feature_list} client:load />
         </ul>
       </li>
