@@ -16,7 +16,7 @@ export function AnimatedPic({ feature_list }: { feature_list: any }) {
               title={item.list}
               href=""
             >
-              <div className="flex basis-full flex-col tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] bg-transparent">
+              <div className="flex basis-full flex-col tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] bg-transparent">
                 <div className="text-base !m-0 !p-0 font-normal">
                 </div>
                 <div className="flex flex-1 w-full">
