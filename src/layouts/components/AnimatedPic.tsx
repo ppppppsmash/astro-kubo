@@ -9,7 +9,7 @@ export function AnimatedPic({ feature_list }: { feature_list: any }) {
       {
         feature_list.map((item: any) => (
           <div>
-            <p className="sm:!m-0 !mt-10 font-bold sm:pl-8 pl-14">
+            <p className="sm:!m-0 !mt-10 font-bold sm:pl-8 pl-0">
               {item.title}
             </p>
             <PinContainer
