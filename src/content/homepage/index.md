@@ -1,6 +1,6 @@
 ---
 banner:
-  image: /images/top_banner.jpg
+  image: /images/jp_top_banner.jpg
 
 ##key features
 key_features:
