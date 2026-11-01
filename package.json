@@ -1,9 +1,8 @@
 {
-  "name": "pinwheel-astro",
+  "name": "kurosawa",
   "version": "2.0.0",
-  "description": "Astro and Tailwindcss boilerplate",
-  "author": "themefisher",
-  "license": "MIT",
+  "description": "proj-kubo",
+  "author": "kurosawa",
   "packageManager": "yarn@1.22.19",
   "scripts": {
     "dev": "astro dev",

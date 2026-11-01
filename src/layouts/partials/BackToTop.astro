@@ -1,0 +1,47 @@
+---
+import { t } from "@/lib/i18n";
+const text = t(Astro.url.pathname);
+---
+
+<button type="button" id="back-to-top" class="back-to-top" aria-label={text.backToTop}>
+  <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+    <path d="M8 13V3M3.5 7.5 8 3l4.5 4.5" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+</button>
+
+<script>
+  let controller: AbortController | null = null;
+
+  function initBackToTop() {
+    controller?.abort();
+    controller = new AbortController();
+    const { signal } = controller;
+
+    const button = document.getElementById("back-to-top");
+    if (!button) return;
+
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      button.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.8);
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    };
+
+    button.addEventListener(
+      "click",
+      () => {
+        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+      },
+      { signal },
+    );
+    window.addEventListener("scroll", onScroll, { passive: true, signal });
+    update();
+  }
+
+  document.addEventListener("astro:page-load", initBackToTop);
+</script>

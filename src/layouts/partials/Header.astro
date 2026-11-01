@@ -1,167 +1,106 @@
 ---
 import Logo from "@/components/Logo.astro";
 import menu from "@/config/menu.json";
+import config from "@/config/config.json";
+import { getLocale, t } from "@/lib/i18n";
 
-export interface ChildNavigationLink {
-  name: string;
-  url: string;
-}
-
-export interface NavigationLink {
-  name: string;
-  url: string;
-  hasChildren?: boolean;
-  children?: ChildNavigationLink[];
-}
-
-const { main }: { main: NavigationLink[] } = menu;
 const { pathname } = Astro.url;
+const locale = getLocale(pathname);
+const items = locale === "tw" ? menu.tw : menu.main;
+const text = t(pathname);
+const contactHref = `mailto:${config.params.email}`;
 ---
 
-<header class="header header-block">
-  <nav class="navbar container">
-    <!-- logo -->
+<header class="header">
+  <nav class="navbar container" aria-label="Main">
     <div class="order-0">
       <Logo />
     </div>
-    <!-- navbar toggler -->
-    <input id="nav-toggle" type="checkbox" class="hidden" />
-    <label
-      id="show-button"
-      for="nav-toggle"
-      class="order-2 flex cursor-pointer items-center lg:order-1 lg:hidden"
-    >
-      <svg class="h-6 fill-current" viewBox="0 0 20 20">
-        <title>Menu Open</title>
-        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
-      </svg>
-    </label>
-    <label
-      id="hide-button"
-      for="nav-toggle"
-      class="order-2 hidden cursor-pointer items-center lg:order-1"
-    >
-      <svg class="h-6 fill-current" viewBox="0 0 20 20">
-        <title>Menu Close</title>
-        <polygon
-          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-          transform="rotate(45 10 10)"></polygon>
-      </svg>
-    </label>
-    <!-- /navbar toggler -->
 
-    <ul
-      id="nav-menu"
-      class="navbar-nav gap-x-6 order-3 hidden w-full lg:order-1 lg:flex lg:w-auto lg:space-x-2"
-    >
+    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <label id="show-button" for="nav-toggle" class="nav-toggle order-2 lg:hidden" aria-label={text.menuOpen}>
+      <svg class="h-5 w-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M2 5h16M2 10h16M2 15h16" stroke-linecap="round" />
+      </svg>
+    </label>
+    <label id="hide-button" for="nav-toggle" class="nav-toggle order-2 hidden lg:hidden" aria-label={text.menuClose}>
+      <svg class="h-5 w-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M4 4l12 12M16 4L4 16" stroke-linecap="round" />
+      </svg>
+    </label>
+
+    <ul id="nav-menu" class="navbar-nav order-3 hidden lg:order-1 lg:flex lg:items-center lg:gap-x-1">
       {
-        main.map((menu) => (
-          <>
-            {menu.hasChildren ? (
-              <li class="nav-item nav-dropdown group relative cursor-pointer  dropdown-button">
-                <span
-                  class={`nav-link inline-flex items-center ${
-                    menu.children?.map(({ url }) => url).includes(pathname) ||
-                    menu.children
-                      ?.map(({ url }) => `${url}/`)
-                      .includes(pathname)
-                      ? "active"
-                      : ""
-                  }`}
-                >
-                  {menu.name}
-                  <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
-                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                  </svg>
-                </span>
-                <ul
-                  id="dropdown"
-                  class="nav-dropdown-list mx-auto hidden duration-300 lg:invisible lg:absolute lg:block lg:h-auto lg:w-[13.5rem] lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100"
-                >
-                  {menu.children?.map((child) => (
-                    <li class="nav-dropdown-item">
-                      <a
-                        href={child.url}
-                        class={`nav-dropdown-link block transition ${
-                          (pathname === `${child.url}/` ||
-                            pathname === child.url) &&
-                          "text-primary"
-                        }`}
-                      >
-                        {child.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ) : (
-              <li class="nav-item">
-                <a
-                  href={menu.url}
-                  class={`nav-link inline-block lg:block`}
-                >
-                  {menu.name}
-                </a>
-              </li>
-            )}
-          </>
+        items.map((item) => (
+          <li class="nav-item">
+            <a href={item.url} class="nav-link">
+              {item.name}
+            </a>
+          </li>
         ))
       }
-      <li class="nav-item">
-        <a
-          href={pathname === '/' ? '/tw' : '/'}
-          class="relative inline-flex h-10 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
-        >
-          <span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FFFFFF_0%,#FFD700_25%,#FFB347_100%)]" />
-          <span class="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gradient-to-r from-[#615d5c] to-[#292727] px-3 py-1 text-[12px] tracking-widest font-medium text-white backdrop-blur-3xl">
-            {pathname === '/' ? 'TAIWANESE' : 'JAPANESE'}
-          </span>
+      <li class="nav-item lg:ml-2">
+        <a href={text.langSwitch.href} class="nav-link nav-lang" hreflang={locale === "tw" ? "ja" : "zh-Hant"}>
+          {text.langSwitch.label}
         </a>
       </li>
+      <li class="nav-item mt-3 lg:ml-4 lg:mt-0">
+        <a href={contactHref} class="btn btn-primary btn-sm">{text.contact}</a>
+      </li>
     </ul>
-
   </nav>
 </header>
 
-<style>
-  .header-transparent {
-    background-color: rgba(255, 255, 255, 0.4); /* 透明度を調整 */
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease-in-out;
+<script>
+  let controller: AbortController | null = null;
+
+  function initHeader() {
+    controller?.abort();
+    controller = new AbortController();
+    const { signal } = controller;
+
+    const header = document.querySelector<HTMLElement>(".header");
+    if (!header) return;
+
+    // Links that point at a section on this page: "/#features", "/tw#service" ...
+    const links = Array.from(header.querySelectorAll<HTMLAnchorElement>("#nav-menu a.nav-link:not(.nav-lang)"));
+    const targets = links
+      .map((link) => {
+        const url = new URL(link.getAttribute("href") ?? "", location.origin);
+        if (url.pathname.replace(/\/$/, "") !== location.pathname.replace(/\/$/, "")) return null;
+        const section = url.hash ? document.getElementById(url.hash.slice(1)) : document.getElementById("banner");
+        return section ? { link, section } : null;
+      })
+      .filter((t): t is { link: HTMLAnchorElement; section: HTMLElement } => t !== null);
+
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      header.classList.toggle("header-sticky", window.scrollY > 8);
+
+      if (!targets.length) return;
+      const probe = window.scrollY + window.innerHeight * 0.35;
+      let current = targets[0];
+      for (const t of targets) {
+        if (t.section.offsetTop <= probe) current = t;
+      }
+      for (const t of targets) {
+        const active = t === current;
+        t.link.classList.toggle("active", active);
+        if (active) t.link.setAttribute("aria-current", "location");
+        else t.link.removeAttribute("aria-current");
+      }
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true, signal });
+    window.addEventListener("resize", onScroll, { passive: true, signal });
+    update();
   }
-</style>
 
-<script is:inline>
-  document.querySelectorAll(".dropdown-button").forEach((button) => {
-    button.addEventListener("click", (e) => {
-      const dropdown = e.target.nextElementSibling;
-      dropdown.classList.toggle(
-        dropdown.style === "hidden" ? "block" : "hidden"
-      );
-    });
-  });
-
-  //sticky header
-  document.addEventListener("astro:page-load", () => {
-    const header = document.querySelector(".header");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 0) {
-        header.classList.add("header-sticky");
-      } else {
-        header.classList.remove("header-sticky");
-      }
-    });
-  });
-
-  // scrollしたら、メニューは透過させる
-  document.addEventListener("astro:page-load", () => {
-    const header = document.querySelector(".header");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 0) {
-        header.classList.add("header-transparent");
-      } else {
-        header.classList.remove("header-transparent");
-      }
-    });
-  });
+  document.addEventListener("astro:page-load", initHeader);
 </script>
