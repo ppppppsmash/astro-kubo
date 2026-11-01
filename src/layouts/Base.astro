@@ -47,19 +47,22 @@ const htmlLang = getLocale(Astro.url.pathname) === "tw" ? "zh-Hant" : "ja";
 <html lang={htmlLang} class="scroll-smooth">
   <head>
     <!-- favicon -->
-    <link rel="shortcut icon" href={config.site.favicon} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <!-- theme meta -->
     <meta name="theme-name" content="pinwheel-astro" />
     <meta name="msapplication-TileColor" content="#000000" />
     <meta
       name="theme-color"
       media="(prefers-color-scheme: light)"
-      content="#fff"
+      content="#FBFAF8"
     />
     <meta
       name="theme-color"
       media="(prefers-color-scheme: dark)"
-      content="#000"
+      content="#1C1C1C"
     />
     <meta name="generator" content={Astro.generator} />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
