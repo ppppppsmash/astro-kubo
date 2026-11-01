@@ -1,9 +1,16 @@
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
 html {
   @apply text-base;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  @apply bg-body bg-repeat font-primary font-normal leading-relaxed text-text;
+  @apply bg-body font-primary font-normal leading-[1.9] tracking-[0.02em] text-text antialiased;
+  -webkit-tap-highlight-color: transparent;
 }
 
 h1,
@@ -12,7 +19,8 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-secondary font-bold leading-tight text-dark;
+  @apply font-secondary font-medium leading-snug tracking-[0.03em] text-dark;
+  font-feature-settings: "palt";
 }
 
 h1,
@@ -43,4 +51,12 @@ h5,
 h6,
 .h6 {
   @apply text-h6;
+}
+
+::selection {
+  @apply bg-dark text-white;
+}
+
+:focus-visible {
+  @apply outline-none ring-2 ring-dark/40 ring-offset-2 ring-offset-body;
 }

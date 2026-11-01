@@ -1,13 +1,14 @@
 ---
-import TwSizeIndicator from "@/components/TwSizeIndicator.astro";
 import config from "@/config/config.json";
 import theme from "@/config/theme.json";
 import { plainify } from "@/lib/utils/textConverter";
 import Footer from "@/partials/Footer.astro";
 import Header from "@/partials/Header.astro";
+import BackToTop from "@/partials/BackToTop.astro";
 import "@/styles/main.scss";
 import { AstroFont } from "astro-font";
-import { ViewTransitions, fade } from "astro:transitions";
+import { ViewTransitions } from "astro:transitions";
+import { getLocale } from "@/lib/i18n";
 
 // font families
 const pf = theme.fonts.font_family.primary;
@@ -38,10 +39,12 @@ export interface Props {
 // distructure frontmatters
 const { title, meta_title, description, image, noindex, canonical } =
   Astro.props;
+
+const htmlLang = getLocale(Astro.url.pathname) === "tw" ? "zh-Hant" : "ja";
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang={htmlLang} class="scroll-smooth">
   <head>
     <!-- favicon -->
     <link rel="shortcut icon" href={config.site.favicon} />
@@ -78,7 +81,7 @@ const { title, meta_title, description, image, noindex, canonical } =
           preload: false,
           display: "swap",
           name: fontSecondary!,
-          fallback: "sans-serif",
+          fallback: "serif",
           cssVariable: "font-secondary",
           googleFontsURL: `https://fonts.googleapis.com/css2?family=${sf}&display=swap`,
         },
@@ -171,11 +174,37 @@ const { title, meta_title, description, image, noindex, canonical } =
   </head>
   <!-- <body transition:animate={fade({ duration: '1s'})}> -->
   <body>
-    <TwSizeIndicator />
     <Header />
     <main id="main-content">
       <slot />
     </main>
     <Footer />
+    <BackToTop />
+
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
+    <script>
+      function initReveal() {
+        const els = document.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-visible)");
+        if (!("IntersectionObserver" in window)) {
+          els.forEach((el) => el.classList.add("is-visible"));
+          return;
+        }
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                io.unobserve(entry.target);
+              }
+            }
+          },
+          { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
+        );
+        els.forEach((el) => io.observe(el));
+      }
+      document.addEventListener("astro:page-load", initReveal);
+    </script>
   </body>
 </html>

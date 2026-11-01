@@ -1,11 +1,173 @@
 // section style
 .section {
-  @apply py-16;
+  @apply py-20 md:py-28;
 }
 
 // container
 .container {
   @apply mx-auto max-w-[1400px];
+}
+
+// section heading
+.eyebrow {
+  @apply mb-3 font-primary text-[11px] font-medium uppercase tracking-[0.28em] text-secondary;
+}
+
+.section-title {
+  @apply text-[1.75rem] leading-[1.35] md:text-[2.25rem];
+}
+
+.section-desc {
+  @apply mt-5 text-[15px] leading-[2] text-text md:text-base;
+}
+
+.section-number {
+  @apply font-secondary text-sm tracking-[0.2em] text-secondary;
+}
+
+// bullet list used in editorial blocks
+.dot-list {
+  li {
+    @apply relative pl-5 text-[15px] leading-[1.9];
+
+    &::before {
+      content: "";
+      @apply absolute left-0 top-[0.85em] h-1 w-1 rounded-full bg-secondary;
+    }
+  }
+}
+
+// scroll reveal (only when JS is available)
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 700ms var(--ease-out),
+    transform 700ms var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal] {
+    transform: none;
+    transition: opacity 300ms ease;
+  }
+}
+
+// hero entrance
+@keyframes hero-line-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-media-in {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-line {
+  opacity: 0;
+  animation: hero-line-in 700ms var(--ease-out) forwards;
+  animation-delay: calc(120ms + var(--i, 0) * 80ms);
+}
+
+.hero-media img {
+  opacity: 0;
+  animation: hero-media-in 1200ms var(--ease-out) forwards;
+}
+
+.hero-title {
+  @apply mt-4 text-[2.75rem] leading-[1.15] tracking-[0.04em] md:text-[4rem] lg:text-[4.5rem];
+}
+
+.hero-sub {
+  @apply mt-5 font-secondary text-lg leading-relaxed tracking-[0.04em] text-dark md:text-xl;
+}
+
+.hero-desc {
+  @apply mt-5 max-w-md text-[15px] leading-[2] text-text;
+}
+
+.hero-meta {
+  @apply mt-12 text-[11px] uppercase tracking-[0.24em] text-light;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-line,
+  .hero-media img {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+// back to top
+.back-to-top {
+  @apply fixed bottom-5 right-5 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-border bg-white text-dark md:bottom-8 md:right-8;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition:
+    opacity 200ms var(--ease-out),
+    transform 200ms var(--ease-out),
+    background-color 200ms ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .back-to-top:hover {
+    @apply bg-theme-light;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transform: none;
+    transition: opacity 200ms ease;
+  }
+}
+
+// message block
+.message-body {
+  p {
+    @apply text-[15px] leading-[2.1];
+  }
+
+  p + p {
+    @apply mt-6;
+  }
+
+  p:first-child {
+    @apply font-secondary text-xl leading-[1.8] tracking-[0.03em] text-dark md:text-2xl;
+  }
 }
 
 // form style
@@ -421,16 +583,27 @@ select:invalid {
 }
 //footer
 .footer {
-  h6 {
-    @apply mb-4 font-primary font-semibold lg:mb-8;
+  .footer-label {
+    @apply mb-5 font-primary text-[11px] font-medium uppercase tracking-[0.24em] text-light;
   }
 
   p {
-    @apply text-sm;
+    @apply text-sm leading-[1.9];
+  }
+
+  li {
+    @apply text-sm leading-[1.9];
   }
 
   li > a {
-    @apply text-sm hover:text-primary hover:underline;
+    @apply text-dark/80 underline-offset-4;
+    transition: color 200ms ease;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer li > a:hover {
+    @apply text-dark underline;
   }
 }
 

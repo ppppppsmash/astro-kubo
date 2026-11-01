@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  eyebrow?: string;
+  description?: string;
+  align?: "center" | "left";
+  class?: string;
+}
+
+const { title, eyebrow, description, align = "center", class: className = "" } = Astro.props;
+
+// Content titles are written as "日本語 / English". Split them into title + eyebrow.
+let heading = title;
+let label = eyebrow;
+if (!label && title.includes("/")) {
+  const [jp, en] = title.split("/");
+  heading = jp.trim();
+  label = en.trim();
+}
+
+const alignClass = align === "left" ? "text-left" : "mx-auto text-center";
+---
+
+<div class={`max-w-2xl ${alignClass} ${className}`} data-reveal>
+  {label && <p class="eyebrow">{label}</p>}
+  <h2 class="section-title">{heading}</h2>
+  {description && <p class="section-desc">{description}</p>}
+</div>

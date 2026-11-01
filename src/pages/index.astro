@@ -3,49 +3,23 @@ import Base from "@/layouts/Base.astro";
 import TopBanner from "@/layouts/components/TopBanner.astro";
 import KeyFeatures from "@/layouts/components/KeyFeatures.astro";
 import Service from "@/layouts/components/Service.astro";
-import Strengths from "@/components/Strengths.astro";
 import Event from "@/layouts/components/Event.astro";
-import GlobalPro from "@/layouts/components/GlobalPro.astro";
 import Business from "@/layouts/components/Business.astro";
 import Message from "@/layouts/components/Message.astro";
-
-import AosComponent from "@/layouts/components/react-ui/aos-component";
 
 import { getEntry } from "astro:content";
 
 const homepage = await getEntry("homepage", "index");
 const messageMDX = await getEntry("homepage", "message");
 
-// src/content/homapge/index.md
-const { banner, key_features, service, strengths, event, global_pro, business } = homepage.data;
+const { banner, key_features, service, event, business } = homepage.data;
 ---
 
 <Base>
   <TopBanner banner={banner} />
-
-  <!-- key features -->
-  <AosComponent client:load>
-    <KeyFeatures key_features={key_features} />
-  </AosComponent>
-
-  <!-- service -->
-  <AosComponent client:load>
-    <Service service={service} />
-  </AosComponent>
-
-  <!-- event -->
-  <AosComponent client:load>
-    <Event event={event} />
-  </AosComponent>
-
-  <!-- business -->
-  <AosComponent client:load>
-    <Business business={business} />
-  </AosComponent>
-
-  <div class="border-b max-w-[1440px] mx-auto"></div>
-
-  <AosComponent aosType="zoom-in" client:load>
-    <Message message={messageMDX} />
-  </AosComponent>
+  <KeyFeatures key_features={key_features} />
+  <Service service={service} />
+  <Event event={event} eyebrow="Research" />
+  <Business business={business} />
+  <Message message={messageMDX} title="代表メッセージ" caption="CEO 黄惠玲（アンジェラ）／写真右" />
 </Base>

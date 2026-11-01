@@ -37,7 +37,7 @@ module.exports = {
     },
     container: {
       center: true,
-      padding: "2rem",
+      padding: { DEFAULT: "1.25rem", md: "2rem" },
     },
     extend: {
       colors: {
@@ -67,24 +67,9 @@ module.exports = {
         primary: ["var(--font-primary)", fontPrimaryType],
         secondary: ["var(--font-secondary)", fontSecondaryType],
       },
-      animation: {
-        shimmer: "shimmer 2s linear infinite",
-        scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
-      },
-      keyframes: {
-        shimmer: {
-          from: {
-            backgroundPosition: "0 0",
-          },
-          to: {
-            backgroundPosition: "-200% 0",
-          },
-        },
-        scroll: {
-          to: {
-            transform: "translate(calc(-50% - 0.5rem))",
-          },
-        },
+      transitionTimingFunction: {
+        "out-strong": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "in-out-strong": "cubic-bezier(0.77, 0, 0.175, 1)",
       },
 
     },

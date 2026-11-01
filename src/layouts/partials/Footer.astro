@@ -1,53 +1,48 @@
 ---
 import Logo from "@/components/Logo.astro";
-import Social from "@/components/Social.astro";
 import config from "@/config/config.json";
 import social from "@/config/social.json";
 import { markdownify } from "@/lib/utils/textConverter";
-const { copyright, corp_name, location, email, phone, footer_description } = config.params;
+import { t } from "@/lib/i18n";
+
+const { copyright, corp_name, location, email, footer_description } = config.params;
+const text = t(Astro.url.pathname);
 ---
 
-<footer class="footer bg-[#F1F1F1]">
+<footer class="footer border-t border-border bg-white">
   <div class="container">
-    <div class="pb-10 pt-[52px] flex flex-wrap justify-between">
-      <div class="col-12 mt-12 md:col-6 lg:col-4">
+    <div class="grid gap-12 py-16 md:grid-cols-12 md:py-20">
+      <div class="md:col-span-5">
         <Logo />
-        <p class="mt-6">
-          {footer_description}
-        </p>
+        <p class="mt-6 max-w-sm">{footer_description}</p>
       </div>
 
-      <!-- <div class="" /> -->
-
-      <div class="col-12 mt-12 md:col-6 lg:col-4">
-        <h6 class="text-md font-thin">Corp. Infomation</h6>
-        <ul>
-          <li class="mb-2">{corp_name}</li>
-          <li class="mb-2">{location}</li>
-          <li class="mb-2">
-            <a class="mb-2 hover:text-primary" href={`mailto:${email}`}
-              >{email}</a
-            >
-          </li>
-          <!-- <li>
-            <a class="hover:text-primary hover:underline" href={`tel:${phone}`}
-              >{phone}</a
-            >
-          </li> -->
+      <div class="md:col-span-4">
+        <h2 class="footer-label">{text.company}</h2>
+        <ul class="space-y-1">
+          <li>{corp_name}</li>
+          <li>{location}</li>
+          <li><a href={`mailto:${email}`}>{email}</a></li>
         </ul>
+      </div>
 
-        <div class="col-12 mt-12 md:col-6 lg:col-4">
-          <h6 class="text-md font-thin">media</h6>
-          <Social source={social} className="social-icons mt-4 lg:mt-6" />
-        </div>
+      <div class="md:col-span-3">
+        <h2 class="footer-label">{text.links}</h2>
+        <ul class="space-y-1">
+          <li><a href={`mailto:${email}`}>{text.contact}</a></li>
+          {social.shop && (
+            <li><a href={social.shop} target="_blank" rel="noopener noreferrer">{text.shop}</a></li>
+          )}
+          {social.instagram && (
+            <li><a href={social.instagram} target="_blank" rel="noopener noreferrer">{text.instagram}</a></li>
+          )}
+        </ul>
       </div>
     </div>
-  </div>
-  <div class="container max-w-[1440px]">
-    <div
-      class="footer-copyright mx-auto border-t border-border pb-10 pt-7 text-center"
-    >
-      <p class="content text-text" set:html={markdownify(copyright)} />
+
+    <div class="flex flex-col gap-2 border-t border-border py-6 text-[12px] tracking-[0.04em] text-light md:flex-row md:items-center md:justify-between">
+      <p set:html={markdownify(copyright)} />
+      <p class="uppercase tracking-[0.24em]">{text.madeIn}</p>
     </div>
   </div>
 </footer>

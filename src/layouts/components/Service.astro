@@ -1,21 +1,41 @@
 ---
+import SectionHeading from "@/components/SectionHeading.astro";
+
 const { service } = Astro.props;
 const { title, description, service_list } = service;
 
-import { InfiniteMovingCardsComponent } from './InfiniteMovingCardsComponent';
+// Short space-separated keywords render as a list; sentences render as a paragraph.
+const asList = (content: string) => {
+  const tokens = content.trim().split(/\s+/);
+  return tokens.length > 1 && tokens.every((w) => w.length <= 14) ? tokens : null;
+};
 ---
 
-
-<section id="service" class="services scroll-mt-24 bg-transparent">
+<section id="service" class="section scroll-mt-20">
   <div class="container">
-    <div class="row">
-      <div class="mx-auto text-center lg:col-8">
-        <h2 class="text-xl md:text-3xl font-bold">{title}</h2>
-        <p class="mt-4">{description}</p>
-      </div>
-    </div>
-    <div class="row mt-8">
-      <InfiniteMovingCardsComponent service_list={service_list} client:load />
-    </div>
+    <SectionHeading title={title} description={description} />
+
+    <ul class="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 md:mt-20 lg:grid-cols-4">
+      {
+        service_list.map((item: any, i: number) => {
+          const tokens = asList(item.content);
+          return (
+            <li class="border-t border-dark/15 pt-6" data-reveal style={`--reveal-delay:${i * 70}ms`}>
+              <p class="section-number">{String(i + 1).padStart(2, "0")}</p>
+              <h3 class="mt-3 text-xl">{item.title}</h3>
+              {tokens ? (
+                <ul class="mt-4 space-y-1.5 text-[15px] leading-[1.9]">
+                  {tokens.map((w) => (
+                    <li>{w}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p class="mt-4 text-[15px] leading-[1.9]">{item.content}</p>
+              )}
+            </li>
+          );
+        })
+      }
+    </ul>
   </div>
 </section>

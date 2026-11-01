@@ -1,16 +1,16 @@
 ---
 banner:
-  title: 投資美麗加碼健康是久保生醫創立初衷123123123
-  content: 全產品100%原料來自日本國,產地日本國,來自日本的純粹的久保生醫邀您 美麗與健康同時擁有
-  image: /images/top_banner.jpg
-  button:
-    label: 聯繫我們
-    link: "#"
-    enable: true
+  image: /images/hero_lab.jpg
+  eyebrow: New Arrival
+  title: 外泌體の力
+  subtitle: 胎盤NMN Ampoule / 哈佛大學認證
+  description: 全產品原料與產地皆來自日本。來自日本的純粹久保生醫，邀您同時擁有美麗與健康。
+  brand: 久保生医自然物研究所株式会社
+  shop_label: 瀏覽產品
 
 ##key features
 key_features:
-  title: Features
+  title: 產品特色 / Features
   description: 機能食品跟高階護膚品兩者相輔相成，內服及外用延續細胞生命力，不斷跟世界接軌，選用世界頂尖、升級原料，不妥協，不落後。
 
   # works
@@ -32,7 +32,7 @@ key_features:
 
 #service
 service:
-  title: Service
+  title: 服務內容 / Service
   description: 安全的分析及認證
   service_list:
     - title: 出廠保證
@@ -97,8 +97,7 @@ global_pro:
 
 #business
 business:
-  title: Business
-  description: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+  title: 商業合作 / Business
   business_list:
     - title: 日本
       description: 全通路均可銷售，可洽詢通路及區域經銷

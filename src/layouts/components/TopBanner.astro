@@ -1,38 +1,66 @@
 ---
-import { HeaderTitle } from "@/layouts/components/react-ui/header-title";
+import config from "@/config/config.json";
+import social from "@/config/social.json";
+import { t } from "@/lib/i18n";
 
 const { banner } = Astro.props;
-const { image, image_sp } = banner;
+const { image, eyebrow, title, subtitle, description, brand } = banner;
+const text = t(Astro.url.pathname);
+const shopLabel = banner.shop_label ?? text.shop;
+const contactHref = `mailto:${config.params.email}`;
+// "A / B" gets a clean wrap opportunity between the two parts on narrow screens.
+const subtitleParts: string[] = String(subtitle ?? "").split(" / ");
 ---
 
-<section id="banner" class="relative scroll-mt-24">
-  <div class="w-full h-full">
-    <div class="w-full md:h-[100svh] overflow-hidden">
-      <div class="bg-black/10 absolute top-0 left-0 w-full h-full" />
-      <img src={image} alt="banner" class="w-full md:h-full md:object-cover animate-scale-down" />
+<section id="banner" class="relative overflow-hidden bg-body">
+  <div class="grid lg:min-h-[calc(100svh-82px)] lg:grid-cols-2">
+    <!-- copy -->
+    <div
+      class="order-2 flex flex-col justify-center px-5 py-14 md:px-8 lg:order-1 lg:py-24 lg:pl-[max(2rem,calc((100vw-1400px)/2+2rem))] lg:pr-16"
+    >
+      <p class="hero-line eyebrow" style="--i:0">{eyebrow}</p>
+      <h1 class="hero-line hero-title" style="--i:1">{title}</h1>
+      <p class="hero-line hero-sub" style="--i:2">
+        {
+          subtitleParts.map((part, i) => (
+            <span class="inline-block">
+              {i > 0 && <span class="mr-2 opacity-40">/</span>}
+              {part}
+            </span>
+          ))
+        }
+      </p>
+      <p class="hero-line hero-desc" style="--i:3">{description}</p>
+      <div class="hero-line mt-10 flex flex-wrap gap-3" style="--i:4">
+        {
+          social.shop && (
+            <a class="btn btn-primary" href={social.shop} target="_blank" rel="noopener noreferrer">
+              {shopLabel}
+            </a>
+          )
+        }
+        <a class="btn btn-outline" href={contactHref}>{text.contact}</a>
+      </div>
+      <p class="hero-line hero-meta flex flex-wrap items-center gap-x-3 gap-y-1" style="--i:5">
+        <span>{text.madeIn}</span>
+        <span class="hidden opacity-40 sm:inline">|</span>
+        <span class="normal-case tracking-[0.12em]">{brand}</span>
+      </p>
     </div>
 
-    <div class="absolute top-0 left-0 w-full h-full" />
+    <!-- media -->
+    <div class="hero-media relative order-1 lg:order-2">
+      <div class="aspect-[4/3] md:aspect-[16/9] lg:absolute lg:inset-0 lg:aspect-auto">
+        <img
+          src={image}
+          alt=""
+          width="1600"
+          height="1745"
+          fetchpriority="high"
+          decoding="async"
+          class="h-full w-full object-cover object-[55%_30%]"
+        />
+      </div>
+    </div>
   </div>
 </section>
-
-<style>
-  @keyframes scaleDown {
-    from {
-      transform: scale(1.1);
-    }
-    to {
-      transform: scale(1);
-    }
-  }
-
-  .animate-scale-down {
-    animation: scaleDown 5s ease-out forwards;
-  }
-
-  @media (max-width: 468px) {
-    .animate-scale-down {
-      animation: none;
-    }
-  }
-</style>

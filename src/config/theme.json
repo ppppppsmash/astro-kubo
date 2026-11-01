@@ -2,31 +2,31 @@
   "colors": {
     "default": {
       "theme_color": {
-        "primary": "#FE6019",
-        "secondary": "#FEE140",
-        "body": "#fafafa",
-        "border": "#EBEBEB",
-        "theme_light": "#E5E5E5",
-        "theme_dark": "#1a202c"
+        "primary": "#B42318",
+        "secondary": "#9A8A63",
+        "body": "#FBFAF8",
+        "border": "#E6E2DC",
+        "theme_light": "#F3F1ED",
+        "theme_dark": "#1C1C1C"
       },
       "text_color": {
-        "default": "#888888",
-        "dark": "#222",
-        "light": "#ceced0"
+        "default": "#4B4B4B",
+        "dark": "#1C1C1C",
+        "light": "#6F6F6F"
       }
     }
   },
 
   "fonts": {
     "font_family": {
-      "primary": "Hiragino Kaku Gothic ProN",
+      "primary": "Noto+Sans+JP:wght@400;500;700",
       "primary_type": "sans-serif",
-      "secondary": "Yumincho",
+      "secondary": "Noto+Serif+JP:wght@400;500;600",
       "secondary_type": "serif"
     },
     "font_size": {
       "base": "16",
-      "scale": "1.24571"
+      "scale": "1.2"
     }
   }
 }

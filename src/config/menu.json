@@ -1,20 +1,14 @@
 {
   "main": [
-    {
-      "name": "Top",
-      "url": "/"
-    },
-    {
-      "name": "Features",
-      "url": "/#features"
-    },
-    {
-      "name": "Service",
-      "url": "/#service"
-    },
-    {
-      "name": "Business",
-      "url": "/#business"
-    }
+    { "name": "トップ", "url": "/" },
+    { "name": "製品の特徴", "url": "/#features" },
+    { "name": "事業内容", "url": "/#service" },
+    { "name": "ビジネス", "url": "/#business" }
+  ],
+  "tw": [
+    { "name": "首頁", "url": "/tw" },
+    { "name": "產品特色", "url": "/tw#features" },
+    { "name": "服務內容", "url": "/tw#service" },
+    { "name": "商業合作", "url": "/tw#business" }
   ]
 }

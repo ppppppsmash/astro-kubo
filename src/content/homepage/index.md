@@ -1,6 +1,12 @@
 ---
 banner:
-  image: /images/jp_top_banner.jpg
+  image: /images/hero_lab.jpg
+  eyebrow: New Arrival
+  title: エクソソーム
+  subtitle: 胎盤NMN Ampoule / ハーバード大学認定
+  description: 日本の研究所と厳選した原料から生まれた久保生医が、美しさと健康を同時に手に入れるお手伝いをいたします。
+  brand: 久保生医自然物研究所株式会社
+  shop_label: 製品を見る
 
 ##key features
 key_features:
@@ -89,7 +95,6 @@ global_pro:
 #business
 business:
   title: ビジネス / Business
-  description: 內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
   business_list:
     # - title: Message from CEO
     #   description:

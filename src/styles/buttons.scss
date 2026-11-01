@@ -1,26 +1,48 @@
 .btn {
-  @apply inline-block h-[52px] border px-8 py-2 text-sm font-medium leading-[36px] transition-all duration-200;
-}
+  @apply inline-flex h-12 select-none items-center justify-center rounded-full px-7 text-[14px] font-medium tracking-[0.06em] no-underline;
+  transition:
+    transform 160ms var(--ease-out),
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
 
-.btn-primary {
-  @apply cursor-pointer rounded-[50px] border-0 bg-gradient-to-tl text-center font-medium text-white hover:shadow-[0px_5px_30px_rgba(252,167,111,0.5)];
-}
-
-.btn-outline-primary {
-  @apply relative rounded-[50px] border-primary bg-transparent text-center capitalize text-dark hover:bg-transparent hover:text-white hover:shadow-[0px_5px_30px_rgba(252,167,111,0.5)] hover:before:opacity-100;
-  &::before {
-    @apply absolute bottom-0 left-0 right-0 top-0 -z-[1] rounded-[inherit] bg-gradient-to-tl opacity-0 transition-[inherit] content-[""];
+  &:active {
+    transform: scale(0.97);
   }
 }
 
-.btn-outline-white {
-  @apply rounded-[50px] bg-transparent text-center capitalize text-dark;
+.btn-primary {
+  @apply bg-dark text-white;
 }
 
-.btn-white {
-  @apply min-w-[150px] rounded-[50px] border-white bg-white text-center capitalize text-dark shadow-lg hover:shadow;
+.btn-outline {
+  @apply border border-dark/25 bg-transparent text-dark;
 }
 
 .btn-sm {
-  @apply h-[42px] leading-[24px];
+  @apply h-10 px-5 text-[13px];
+}
+
+.btn-link {
+  @apply inline-flex items-center gap-2 text-[14px] font-medium tracking-[0.04em] text-dark;
+
+  &::after {
+    content: "";
+    @apply h-px w-6 bg-dark;
+    transition: width 200ms var(--ease-out);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover {
+    background-color: #333333;
+  }
+
+  .btn-outline:hover {
+    @apply border-dark;
+  }
+
+  .btn-link:hover::after {
+    width: 2.25rem;
+  }
 }
