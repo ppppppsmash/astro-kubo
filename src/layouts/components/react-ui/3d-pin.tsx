@@ -71,8 +71,8 @@ export const PinPerspective = ({
           <div
             className="relative z-10 rounded-md bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10 "
           >
-            {title?.map((t: any) => (
-              <p className="relative z-20 text-white text-xs font-bold inline-block py-0.5">
+            {title?.map((t: any, index: number) => (
+              <p key={index} className="relative z-20 text-white text-xs font-bold inline-block py-0.5">
                 {t}
               </p>
             ))}
