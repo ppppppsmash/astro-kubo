@@ -1,12 +1,13 @@
 ---
 import SectionHeading from "@/components/SectionHeading.astro";
 import config from "@/config/config.json";
-import { t } from "@/lib/i18n";
+import Icon from "@/components/Icon.astro";
+import { contactHref as buildContactHref, t } from "@/lib/i18n";
 
 const { business } = Astro.props;
 const { title, business_list } = business;
 const text = t(Astro.url.pathname);
-const contactHref = `mailto:${config.params.email}`;
+const contactHref = buildContactHref(Astro.url.pathname, config.params.email);
 ---
 
 <section id="business" class="section scroll-mt-20">
@@ -15,7 +16,10 @@ const contactHref = `mailto:${config.params.email}`;
       <div class="lg:col-span-4">
         <div class="lg:sticky lg:top-28">
           <SectionHeading title={title} align="left" />
-          <a href={contactHref} class="btn btn-outline mt-8" data-reveal>{text.contact}</a>
+          <a href={contactHref} class="btn btn-outline mt-8" data-reveal>
+            <Icon name="mail" class="btn-icon" />
+            <span>{text.contact}</span>
+          </a>
         </div>
       </div>
 

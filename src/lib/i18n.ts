@@ -11,6 +11,8 @@ export const languages = [
 export const dict = {
   ja: {
     contact: "お問い合わせ",
+    contactSubject: "お問い合わせ（久保生医サイトより）",
+    opensInNewTab: "新しいタブで開きます",
     shop: "オンラインショップ",
     instagram: "Instagram",
     language: "言語を選択",
@@ -24,6 +26,8 @@ export const dict = {
   },
   tw: {
     contact: "聯繫我們",
+    contactSubject: "諮詢（來自久保生醫網站）",
+    opensInNewTab: "在新分頁開啟",
     shop: "線上商店",
     instagram: "Instagram",
     language: "選擇語言",
@@ -38,3 +42,7 @@ export const dict = {
 } as const;
 
 export const t = (pathname: string) => dict[getLocale(pathname)];
+
+// mailto with a prefilled, locale-aware subject so inbound mail is easy to triage.
+export const contactHref = (pathname: string, email: string) =>
+  `mailto:${email}?subject=${encodeURIComponent(t(pathname).contactSubject)}`;

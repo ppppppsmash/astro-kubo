@@ -1,13 +1,14 @@
 ---
 import config from "@/config/config.json";
 import social from "@/config/social.json";
-import { t } from "@/lib/i18n";
+import Icon from "@/components/Icon.astro";
+import { contactHref as buildContactHref, t } from "@/lib/i18n";
 
 const { banner } = Astro.props;
 const { image, eyebrow, title, subtitle, description, brand } = banner;
 const text = t(Astro.url.pathname);
 const shopLabel = banner.shop_label ?? text.shop;
-const contactHref = `mailto:${config.params.email}`;
+const contactHref = buildContactHref(Astro.url.pathname, config.params.email);
 // "A / B" gets a clean wrap opportunity between the two parts on narrow screens.
 const subtitleParts: string[] = String(subtitle ?? "").split(" / ");
 ---
@@ -35,11 +36,16 @@ const subtitleParts: string[] = String(subtitle ?? "").split(" / ");
         {
           social.shop && (
             <a class="btn btn-primary" href={social.shop} target="_blank" rel="noopener noreferrer">
-              {shopLabel}
+              <span>{shopLabel}</span>
+              <Icon name="arrow-up-right" class="btn-icon btn-icon-external" />
+              <span class="sr-only">（{text.opensInNewTab}）</span>
             </a>
           )
         }
-        <a class="btn btn-outline" href={contactHref}>{text.contact}</a>
+        <a class="btn btn-outline" href={contactHref}>
+          <Icon name="mail" class="btn-icon" />
+          <span>{text.contact}</span>
+        </a>
       </div>
       <p class="hero-line hero-meta flex flex-wrap items-center gap-x-3 gap-y-1" style="--i:5">
         <span>{text.madeIn}</span>

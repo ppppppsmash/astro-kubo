@@ -1,5 +1,5 @@
 .btn {
-  @apply inline-flex h-12 select-none items-center justify-center rounded-full px-7 text-[14px] font-medium tracking-[0.06em] no-underline;
+  @apply inline-flex h-12 select-none items-center justify-center gap-2 rounded-full px-7 text-[14px] font-medium tracking-[0.06em] no-underline;
   transition:
     transform 160ms var(--ease-out),
     background-color 200ms ease,
@@ -20,7 +20,26 @@
 }
 
 .btn-sm {
-  @apply h-10 px-5 text-[13px];
+  @apply h-10 gap-1.5 px-5 text-[13px];
+
+  .btn-icon {
+    @apply h-3.5 w-3.5;
+  }
+}
+
+// icons inside buttons
+.btn-icon {
+  @apply h-4 w-4 shrink-0;
+  transition: transform 240ms var(--ease-out);
+}
+
+// leading icon sits a touch closer to the edge than the text does
+.btn > .btn-icon:first-child {
+  @apply -ml-1;
+}
+
+.btn > .btn-icon-external {
+  @apply -mr-1;
 }
 
 .btn-link {
@@ -44,5 +63,18 @@
 
   .btn-link:hover::after {
     width: 2.25rem;
+  }
+
+  // external arrow nudges toward its destination
+  .btn:hover .btn-icon-external {
+    transform: translate(2px, -2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn-icon,
+  .btn-link::after {
+    transition: none !important;
   }
 }

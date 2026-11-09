@@ -3,10 +3,11 @@ import Logo from "@/components/Logo.astro";
 import config from "@/config/config.json";
 import social from "@/config/social.json";
 import { markdownify } from "@/lib/utils/textConverter";
-import { t } from "@/lib/i18n";
+import { contactHref as buildContactHref, t } from "@/lib/i18n";
 
 const { copyright, corp_name, location, email, footer_description } = config.params;
 const text = t(Astro.url.pathname);
+const contactHref = buildContactHref(Astro.url.pathname, email);
 ---
 
 <footer class="footer border-t border-border bg-white">
@@ -29,7 +30,7 @@ const text = t(Astro.url.pathname);
       <div class="md:col-span-3">
         <h2 class="footer-label">{text.links}</h2>
         <ul class="space-y-1">
-          <li><a href={`mailto:${email}`}>{text.contact}</a></li>
+          <li><a href={contactHref}>{text.contact}</a></li>
           {social.shop && (
             <li><a href={social.shop} target="_blank" rel="noopener noreferrer">{text.shop}</a></li>
           )}
