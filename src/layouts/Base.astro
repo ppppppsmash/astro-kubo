@@ -188,6 +188,16 @@ const htmlLang = getLocale(Astro.url.pathname) === "tw" ? "zh-Hant" : "ja";
       document.documentElement.classList.add("js");
     </script>
     <script>
+      import { initLineMd } from "@/lib/linemd";
+
+      let iconController: AbortController | null = null;
+      function initIcons() {
+        iconController?.abort();
+        iconController = new AbortController();
+        initLineMd(document, iconController.signal);
+      }
+      document.addEventListener("astro:page-load", initIcons);
+
       function initReveal() {
         const els = document.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-visible)");
         if (!("IntersectionObserver" in window)) {

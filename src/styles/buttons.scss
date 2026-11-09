@@ -30,7 +30,6 @@
 // icons inside buttons
 .btn-icon {
   @apply h-4 w-4 shrink-0;
-  transition: transform 240ms var(--ease-out);
 }
 
 // leading icon sits a touch closer to the edge than the text does
@@ -64,16 +63,10 @@
   .btn-link:hover::after {
     width: 2.25rem;
   }
-
-  // external arrow nudges toward its destination
-  .btn:hover .btn-icon-external {
-    transform: translate(2px, -2px);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .btn,
-  .btn-icon,
   .btn-link::after {
     transition: none !important;
   }

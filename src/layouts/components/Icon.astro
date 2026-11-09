@@ -1,34 +1,59 @@
 ---
-// Small inline icon set for buttons and links. Decorative by default
-// (aria-hidden); pass `label` only when the icon stands alone.
-type Name = "mail" | "arrow-up-right" | "arrow-right";
+// Animated line icons (SMIL stroke-draw / path-morph), inlined so no icon
+// runtime is shipped. Bodies are from Material Line Icons (line-md, MIT ©
+// Vjacheslav Trushkin) with a couple of in-house additions (globe, ↗).
+//
+//   <Icon name="mail" md="hover inview" delay={600} class="btn-icon" />
+//
+// `md` is a space-separated list of replay triggers handled by lib/linemd.ts:
+//   hover  — replay when the closest a/button/[data-md-scope] is hovered
+//   inview — hold at frame 0, draw once when scrolled into view
+//   menu   — replayed by the header when the mobile panel opens
+//   lang   — replayed by the header when the language dropdown opens
+// Decorative by default (aria-hidden); pass `label` only when it stands alone.
+type Name =
+  | "mail"
+  | "arrow-up-right"
+  | "arrow-right"
+  | "arrow-align-top"
+  | "check"
+  | "globe"
+  | "menu-to-close"
+  | "close-to-menu";
 
 interface Props {
   name: Name;
   class?: string;
   label?: string;
+  md?: string;
+  delay?: number;
+  [key: `data-${string}`]: string | undefined;
 }
 
-const { name, class: className, label } = Astro.props;
+const { name, class: className, label, md, delay, ...rest } = Astro.props;
 
-const paths: Record<Name, string> = {
-  mail: "M2.5 5.5A1.5 1.5 0 0 1 4 4h12a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 16 16H4a1.5 1.5 0 0 1-1.5-1.5v-9Zm.5.5 7 5 7-5",
-  "arrow-up-right": "M6 14 14 6M7.5 6H14v6.5",
-  "arrow-right": "M3.5 10h13M11.5 5l5 5-5 5",
+const A = 'fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"';
+
+const bodies: Record<Name, string> = {
+  mail: `<g ${A}><path stroke-dasharray="66" d="M4 5h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="66;0"/></path><path stroke-dasharray="24" stroke-dashoffset="24" d="M3 6.5l9 5.5l9 -5.5"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.3s" to="0"/></path></g>`,
+  "arrow-right": `<g ${A}><path stroke-dasharray="16" d="M5 12h13.5"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="16;0"/></path><path stroke-dasharray="10" stroke-dashoffset="10" d="M19 12l-5 5M19 12l-5 -5"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.3s" dur="0.2s" to="0"/></path></g>`,
+  "arrow-up-right": `<g ${A} transform="rotate(-45 12 12)"><path stroke-dasharray="16" d="M5 12h13.5"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="16;0"/></path><path stroke-dasharray="10" stroke-dashoffset="10" d="M19 12l-5 5M19 12l-5 -5"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.3s" dur="0.2s" to="0"/></path></g>`,
+  "arrow-align-top": `<g ${A}><path stroke-dasharray="20" d="M3 3l18 0"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="20;0"/></path><path stroke-dasharray="16" stroke-dashoffset="16" d="M12 21l0 -13.5"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.3s" to="0"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M12 7l4 4M12 7l-4 4"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.7s" dur="0.2s" to="0"/></path></g>`,
+  check: `<path ${A} stroke-dasharray="26" d="M5 11l6 6l10 -10"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="26;0"/></path>`,
+  globe: `<g ${A}><circle stroke-dasharray="48" cx="12" cy="12" r="7.5"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="48;0"/></circle><path stroke-dasharray="16" stroke-dashoffset="16" d="M4.5 12h15"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.45s" dur="0.25s" to="0"/></path><path stroke-dasharray="36" stroke-dashoffset="36" d="M12 4.5c2.3 2.3 3.5 4.8 3.5 7.5s-1.2 5.2 -3.5 7.5c-2.3 -2.3 -3.5 -4.8 -3.5 -7.5s1.2 -5.2 3.5 -7.5Z"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.55s" dur="0.35s" to="0"/></path></g>`,
+  "menu-to-close": `<path ${A} d="M5 5l7 7l7 -7M12 12h0M5 19l7 -7l7 7"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 5l7 0l7 0M5 12h14M5 19l7 0l7 0;M5 5l7 7l7 -7M12 12h0M5 19l7 -7l7 7"/></path>`,
+  "close-to-menu": `<path ${A} d="M5 5l7 0l7 0M5 12h14M5 19l7 0l7 0"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 5l7 7l7 -7M12 12h0M5 19l7 -7l7 7;M5 5l7 0l7 0M5 12h14M5 19l7 0l7 0"/></path>`,
 };
 ---
 
 <svg
   class={className}
-  viewBox="0 0 20 20"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="1.5"
-  stroke-linecap="round"
-  stroke-linejoin="round"
+  viewBox="0 0 24 24"
+  data-md={md}
+  data-md-delay={delay}
   aria-hidden={label ? undefined : "true"}
   role={label ? "img" : undefined}
   aria-label={label}
->
-  <path d={paths[name]}></path>
-</svg>
+  {...rest}
+  set:html={bodies[name]}
+/>

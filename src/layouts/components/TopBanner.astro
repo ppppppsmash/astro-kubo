@@ -37,13 +37,13 @@ const subtitleParts: string[] = String(subtitle ?? "").split(" / ");
           social.shop && (
             <a class="btn btn-primary" href={social.shop} target="_blank" rel="noopener noreferrer">
               <span>{shopLabel}</span>
-              <Icon name="arrow-up-right" class="btn-icon btn-icon-external" />
+              <Icon name="arrow-up-right" class="btn-icon btn-icon-external" md="hover inview" delay={650} />
               <span class="sr-only">（{text.opensInNewTab}）</span>
             </a>
           )
         }
         <a class="btn btn-outline" href={contactHref}>
-          <Icon name="mail" class="btn-icon" />
+          <Icon name="mail" class="btn-icon" md="hover inview" delay={650} />
           <span>{text.contact}</span>
         </a>
       </div>

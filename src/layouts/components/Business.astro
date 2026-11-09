@@ -17,7 +17,7 @@ const contactHref = buildContactHref(Astro.url.pathname, config.params.email);
         <div class="lg:sticky lg:top-28">
           <SectionHeading title={title} align="left" />
           <a href={contactHref} class="btn btn-outline mt-8" data-reveal>
-            <Icon name="mail" class="btn-icon" />
+            <Icon name="mail" class="btn-icon" md="hover inview" delay={250} />
             <span>{text.contact}</span>
           </a>
         </div>

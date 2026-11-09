@@ -29,12 +29,8 @@ const currentLanguage = languages.find((l) => l.code === locale) ?? languages[0]
       data-label-open={text.menuOpen}
       data-label-close={text.menuClose}
     >
-      <svg class="nav-toggle-icon nav-toggle-icon-open h-5 w-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-        <path d="M2 5h16M2 10h16M2 15h16" stroke-linecap="round" />
-      </svg>
-      <svg class="nav-toggle-icon nav-toggle-icon-close h-5 w-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-        <path d="M4 4l12 12M16 4L4 16" stroke-linecap="round" />
-      </svg>
+      <Icon name="menu-to-close" class="nav-toggle-icon h-5 w-5" data-menu-icon="open" />
+      <Icon name="close-to-menu" class="nav-toggle-icon hidden h-5 w-5" data-menu-icon="close" />
     </button>
 
     <ul id="nav-menu" class="navbar-nav order-3 lg:order-1">
@@ -58,10 +54,7 @@ const currentLanguage = languages.find((l) => l.code === locale) ?? languages[0]
             aria-controls="lang-menu"
             aria-label={text.language}
           >
-            <svg class="lang-globe h-[18px] w-[18px]" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true">
-              <circle cx="10" cy="10" r="7.5" />
-              <path d="M2.5 10h15M10 2.5c2.2 2.3 3.3 4.8 3.3 7.5s-1.1 5.2-3.3 7.5c-2.2-2.3-3.3-4.8-3.3-7.5S7.8 4.8 10 2.5Z" stroke-linejoin="round" />
-            </svg>
+            <Icon name="globe" class="lang-globe h-[18px] w-[18px]" md="hover menu" />
             <span class="lang-label">{currentLanguage.label}</span>
             <svg class="lang-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true">
               <path d="M2.5 4.5 6 8l3.5-3.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -82,9 +75,7 @@ const currentLanguage = languages.find((l) => l.code === locale) ?? languages[0]
                       tabindex="-1"
                     >
                       <span>{l.label}</span>
-                      <svg class="lang-check h-3.5 w-3.5" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                        <path d="M2.5 7.5 5.5 10.5 11.5 3.5" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
+                      <Icon name="check" class="lang-check h-3.5 w-3.5" md="lang" />
                     </a>
                   </li>
                 ))
@@ -95,7 +86,7 @@ const currentLanguage = languages.find((l) => l.code === locale) ?? languages[0]
       </li>
       <li class="nav-item nav-item-cta lg:ml-4">
         <a href={contactHref} class="btn btn-primary btn-sm w-full lg:w-auto">
-          <Icon name="mail" class="btn-icon" />
+          <Icon name="mail" class="btn-icon" md="hover menu" />
           <span>{text.contact}</span>
         </a>
       </li>
@@ -104,6 +95,8 @@ const currentLanguage = languages.find((l) => l.code === locale) ?? languages[0]
 </header>
 
 <script>
+  import { replay, hold, finish, reducedMotion } from "@/lib/linemd";
+
   let controller: AbortController | null = null;
 
   function initHeader() {
@@ -120,12 +113,40 @@ const currentLanguage = languages.find((l) => l.code === locale) ?? languages[0]
     const desktop = window.matchMedia("(min-width: 1024px)");
     const isOpen = () => header.dataset.menu === "open";
 
+    // hamburger ⇄ cross: two SMIL morphs, swap + rewind the one for this direction
+    const iconOpen = header.querySelector<SVGSVGElement>('[data-menu-icon="open"]');
+    const iconClose = header.querySelector<SVGSVGElement>('[data-menu-icon="close"]');
+    const reduce = reducedMotion();
+    if (iconOpen) hold(iconOpen);
+    if (iconClose) finish(iconClose);
+    const setMenuIcon = (open: boolean) => {
+      if (!iconOpen || !iconClose) return;
+      if (reduce) {
+        iconOpen.classList.remove("hidden");
+        iconClose.classList.add("hidden");
+        iconOpen.pauseAnimations();
+        iconOpen.setCurrentTime(open ? 60 : 0);
+        return;
+      }
+      const show = open ? iconOpen : iconClose;
+      const hide = open ? iconClose : iconOpen;
+      hide.classList.add("hidden");
+      show.classList.remove("hidden");
+      replay(show);
+    };
+
     const setOpen = (open: boolean) => {
       if (!toggle) return;
+      const changed = (header.dataset.menu === "open") !== open;
       header.dataset.menu = open ? "open" : "closed";
       toggle.setAttribute("aria-expanded", String(open));
       const label = open ? toggle.dataset.labelClose : toggle.dataset.labelOpen;
       if (label) toggle.setAttribute("aria-label", label);
+      if (changed) setMenuIcon(open);
+      // icons inside the panel draw themselves in as it opens
+      if (changed && open && !reduce && menu) {
+        menu.querySelectorAll<SVGSVGElement>('svg[data-md~="menu"]').forEach(replay);
+      }
     };
 
     if (toggle && menu) {
@@ -174,8 +195,12 @@ const currentLanguage = languages.find((l) => l.code === locale) ?? languages[0]
 
     const setLangOpen = (open: boolean) => {
       if (!lang || !langToggle) return;
+      const changed = langOpen() !== open;
       lang.dataset.open = String(open);
       langToggle.setAttribute("aria-expanded", String(open));
+      if (changed && open && !reduce) {
+        lang.querySelectorAll<SVGSVGElement>('svg[data-md~="lang"]').forEach(replay);
+      }
     };
 
     if (lang && langToggle && langOptions.length) {

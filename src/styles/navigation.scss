@@ -267,27 +267,7 @@ li[role="none"]:last-child .lang-option {
 }
 
 .nav-toggle-icon {
-  @apply absolute inset-0 m-auto;
-  transition:
-    opacity 180ms ease,
-    transform 260ms var(--ease-out);
-}
-
-.nav-toggle-icon-close {
-  opacity: 0;
-  transform: rotate(-90deg) scale(0.8);
-}
-
-.header[data-menu="open"] {
-  .nav-toggle-icon-open {
-    opacity: 0;
-    transform: rotate(90deg) scale(0.8);
-  }
-
-  .nav-toggle-icon-close {
-    opacity: 1;
-    transform: none;
-  }
+  @apply block;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -298,7 +278,6 @@ li[role="none"]:last-child .lang-option {
   .nav-link::before,
   .nav-link::after,
   .nav-toggle,
-  .nav-toggle-icon,
   .lang-toggle,
   .lang-chevron,
   .lang-menu,
