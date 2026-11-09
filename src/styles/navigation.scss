@@ -42,30 +42,26 @@
 .navbar-nav {
   @apply absolute inset-x-0 top-full border-b border-border bg-body px-5 pb-6 pt-1 text-left;
   @apply lg:static lg:flex lg:items-center lg:gap-x-1 lg:border-0 lg:bg-transparent lg:p-0;
-  opacity: 0;
+  // closed: clipped to a zero-height strip under the header, then unfolds downward
+  clip-path: inset(0 0 100% 0);
   visibility: hidden;
-  transform: translateY(-6px);
   pointer-events: none;
   transition:
-    opacity 200ms ease,
-    transform 260ms var(--ease-out),
-    visibility 0s linear 260ms;
+    clip-path 240ms var(--ease-in-out),
+    visibility 0s linear 240ms;
 
   .header[data-menu="open"] & {
-    opacity: 1;
+    clip-path: inset(0 0 0 0);
     visibility: visible;
-    transform: none;
     pointer-events: auto;
     transition:
-      opacity 200ms ease,
-      transform 260ms var(--ease-out),
+      clip-path 420ms var(--ease-out),
       visibility 0s;
   }
 
   @screen lg {
-    opacity: 1;
+    clip-path: none;
     visibility: visible;
-    transform: none;
     pointer-events: auto;
     transition: none;
   }
@@ -73,9 +69,30 @@
 
 .nav-item {
   @apply border-t border-border/70 lg:flex lg:items-center lg:border-0;
+  // items follow the panel in, one after another (--i set inline)
+  opacity: 0;
+  transform: translateY(-10px);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
 
   &:first-child {
     @apply border-t-0;
+  }
+
+  .header[data-menu="open"] & {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 360ms ease,
+      transform 480ms var(--ease-out);
+    transition-delay: calc(90ms + var(--i, 0) * 45ms);
+  }
+
+  @screen lg {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 
@@ -274,6 +291,7 @@ li[role="none"]:last-child .lang-option {
   .header,
   .header::before,
   .navbar-nav,
+  .nav-item,
   .nav-link,
   .nav-link::before,
   .nav-link::after,

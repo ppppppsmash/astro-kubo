@@ -35,15 +35,15 @@ const currentLanguage = languages.find((l) => l.code === locale) ?? languages[0]
 
     <ul id="nav-menu" class="navbar-nav order-3 lg:order-1">
       {
-        items.map((item) => (
-          <li class="nav-item">
+        items.map((item, i) => (
+          <li class="nav-item" style={`--i:${i}`}>
             <a href={item.url} class="nav-link">
               {item.name}
             </a>
           </li>
         ))
       }
-      <li class="nav-item lg:ml-2">
+      <li class="nav-item lg:ml-2" style={`--i:${items.length}`}>
         <div class="lang" data-open="false">
           <button
             type="button"
@@ -84,7 +84,7 @@ const currentLanguage = languages.find((l) => l.code === locale) ?? languages[0]
           </div>
         </div>
       </li>
-      <li class="nav-item nav-item-cta lg:ml-4">
+      <li class="nav-item nav-item-cta lg:ml-4" style={`--i:${items.length + 1}`}>
         <a href={contactHref} class="btn btn-primary btn-sm w-full lg:w-auto">
           <Icon name="mail" class="btn-icon" md="hover menu" />
           <span>{text.contact}</span>
@@ -95,7 +95,7 @@ const currentLanguage = languages.find((l) => l.code === locale) ?? languages[0]
 </header>
 
 <script>
-  import { replay, hold, finish, reducedMotion } from "@/lib/linemd";
+  import { replay, reducedMotion } from "@/lib/linemd";
 
   let controller: AbortController | null = null;
 
@@ -113,26 +113,27 @@ const currentLanguage = languages.find((l) => l.code === locale) ?? languages[0]
     const desktop = window.matchMedia("(min-width: 1024px)");
     const isOpen = () => header.dataset.menu === "open";
 
-    // hamburger ⇄ cross: two SMIL morphs, swap + rewind the one for this direction
+    // hamburger ⇄ cross: two SMIL morphs whose static shape is their start frame.
+    // Show the one for this direction and kick its <animate> (begin="indefinite").
     const iconOpen = header.querySelector<SVGSVGElement>('[data-menu-icon="open"]');
     const iconClose = header.querySelector<SVGSVGElement>('[data-menu-icon="close"]');
     const reduce = reducedMotion();
-    if (iconOpen) hold(iconOpen);
-    if (iconClose) finish(iconClose);
+    const SHAPE_MENU = "M5 5l7 0l7 0M5 12h14M5 19l7 0l7 0";
+    const SHAPE_CLOSE = "M5 5l7 7l7 -7M12 12h0M5 19l7 -7l7 7";
     const setMenuIcon = (open: boolean) => {
       if (!iconOpen || !iconClose) return;
       if (reduce) {
+        // no morph: just set the shape on the always-visible icon
         iconOpen.classList.remove("hidden");
         iconClose.classList.add("hidden");
-        iconOpen.pauseAnimations();
-        iconOpen.setCurrentTime(open ? 60 : 0);
+        iconOpen.querySelector("path")?.setAttribute("d", open ? SHAPE_CLOSE : SHAPE_MENU);
         return;
       }
       const show = open ? iconOpen : iconClose;
       const hide = open ? iconClose : iconOpen;
       hide.classList.add("hidden");
       show.classList.remove("hidden");
-      replay(show);
+      show.querySelector<SVGAnimateElement>("animate")?.beginElement();
     };
 
     const setOpen = (open: boolean) => {

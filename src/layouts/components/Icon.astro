@@ -41,8 +41,10 @@ const bodies: Record<Name, string> = {
   "arrow-align-top": `<g ${A}><path stroke-dasharray="20" d="M3 3l18 0"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="20;0"/></path><path stroke-dasharray="16" stroke-dashoffset="16" d="M12 21l0 -13.5"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.3s" to="0"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M12 7l4 4M12 7l-4 4"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.7s" dur="0.2s" to="0"/></path></g>`,
   check: `<path ${A} stroke-dasharray="26" d="M5 11l6 6l10 -10"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="26;0"/></path>`,
   globe: `<g ${A}><circle stroke-dasharray="48" cx="12" cy="12" r="7.5"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="48;0"/></circle><path stroke-dasharray="16" stroke-dashoffset="16" d="M4.5 12h15"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.45s" dur="0.25s" to="0"/></path><path stroke-dasharray="36" stroke-dashoffset="36" d="M12 4.5c2.3 2.3 3.5 4.8 3.5 7.5s-1.2 5.2 -3.5 7.5c-2.3 -2.3 -3.5 -4.8 -3.5 -7.5s1.2 -5.2 3.5 -7.5Z"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.55s" dur="0.35s" to="0"/></path></g>`,
-  "menu-to-close": `<path ${A} d="M5 5l7 7l7 -7M12 12h0M5 19l7 -7l7 7"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 5l7 0l7 0M5 12h14M5 19l7 0l7 0;M5 5l7 7l7 -7M12 12h0M5 19l7 -7l7 7"/></path>`,
-  "close-to-menu": `<path ${A} d="M5 5l7 0l7 0M5 12h14M5 19l7 0l7 0"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 5l7 7l7 -7M12 12h0M5 19l7 -7l7 7;M5 5l7 0l7 0M5 12h14M5 19l7 0l7 0"/></path>`,
+  // The menu morphs start from their static shape and only run when the header script calls
+  // beginElement(), so a closed menu shows three lines even before (or without) JS.
+  "menu-to-close": `<path ${A} d="M5 5l7 0l7 0M5 12h14M5 19l7 0l7 0"><animate fill="freeze" begin="indefinite" attributeName="d" dur="0.4s" values="M5 5l7 0l7 0M5 12h14M5 19l7 0l7 0;M5 5l7 7l7 -7M12 12h0M5 19l7 -7l7 7"/></path>`,
+  "close-to-menu": `<path ${A} d="M5 5l7 7l7 -7M12 12h0M5 19l7 -7l7 7"><animate fill="freeze" begin="indefinite" attributeName="d" dur="0.4s" values="M5 5l7 7l7 -7M12 12h0M5 19l7 -7l7 7;M5 5l7 0l7 0M5 12h14M5 19l7 0l7 0"/></path>`,
 };
 ---
 
