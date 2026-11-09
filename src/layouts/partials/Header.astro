@@ -2,13 +2,14 @@
 import Logo from "@/components/Logo.astro";
 import menu from "@/config/menu.json";
 import config from "@/config/config.json";
-import { getLocale, t } from "@/lib/i18n";
+import { getLocale, languages, t } from "@/lib/i18n";
 
 const { pathname } = Astro.url;
 const locale = getLocale(pathname);
 const items = locale === "tw" ? menu.tw : menu.main;
 const text = t(pathname);
 const contactHref = `mailto:${config.params.email}`;
+const currentLanguage = languages.find((l) => l.code === locale) ?? languages[0];
 ---
 
 <header class="header" data-menu="closed">
@@ -46,9 +47,50 @@ const contactHref = `mailto:${config.params.email}`;
         ))
       }
       <li class="nav-item lg:ml-2">
-        <a href={text.langSwitch.href} class="nav-link nav-lang" hreflang={locale === "tw" ? "ja" : "zh-Hant"}>
-          {text.langSwitch.label}
-        </a>
+        <div class="lang" data-open="false">
+          <button
+            type="button"
+            id="lang-toggle"
+            class="lang-toggle"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-controls="lang-menu"
+            aria-label={text.language}
+          >
+            <svg class="lang-globe h-[18px] w-[18px]" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true">
+              <circle cx="10" cy="10" r="7.5" />
+              <path d="M2.5 10h15M10 2.5c2.2 2.3 3.3 4.8 3.3 7.5s-1.1 5.2-3.3 7.5c-2.2-2.3-3.3-4.8-3.3-7.5S7.8 4.8 10 2.5Z" stroke-linejoin="round" />
+            </svg>
+            <span class="lang-label">{currentLanguage.label}</span>
+            <svg class="lang-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true">
+              <path d="M2.5 4.5 6 8l3.5-3.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div id="lang-menu" class="lang-menu">
+            <ul class="lang-list" role="menu" aria-label={text.language}>
+              {
+                languages.map((l) => (
+                  <li role="none">
+                    <a
+                      role="menuitem"
+                      href={l.href}
+                      hreflang={l.hreflang}
+                      lang={l.hreflang}
+                      class="lang-option"
+                      aria-current={l.code === locale ? "true" : undefined}
+                      tabindex="-1"
+                    >
+                      <span>{l.label}</span>
+                      <svg class="lang-check h-3.5 w-3.5" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                        <path d="M2.5 7.5 5.5 10.5 11.5 3.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
       </li>
       <li class="nav-item nav-item-cta lg:ml-4">
         <a href={contactHref} class="btn btn-primary btn-sm w-full lg:w-auto">{text.contact}</a>
@@ -120,10 +162,80 @@ const contactHref = `mailto:${config.params.email}`;
       desktop.addEventListener("change", (e) => e.matches && setOpen(false), { signal });
     }
 
+    // --- language dropdown --------------------------------------------------
+    const lang = header.querySelector<HTMLElement>(".lang");
+    const langToggle = header.querySelector<HTMLButtonElement>("#lang-toggle");
+    const langOptions = Array.from(header.querySelectorAll<HTMLAnchorElement>(".lang-option"));
+    const langOpen = () => lang?.dataset.open === "true";
+
+    const setLangOpen = (open: boolean) => {
+      if (!lang || !langToggle) return;
+      lang.dataset.open = String(open);
+      langToggle.setAttribute("aria-expanded", String(open));
+    };
+
+    if (lang && langToggle && langOptions.length) {
+      const focusOption = (index: number) => {
+        const i = (index + langOptions.length) % langOptions.length;
+        langOptions[i].focus();
+      };
+
+      langToggle.addEventListener("click", () => setLangOpen(!langOpen()), { signal });
+
+      langToggle.addEventListener(
+        "keydown",
+        (e) => {
+          if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+            e.preventDefault();
+            setLangOpen(true);
+            // wait for visibility to flip before moving focus
+            requestAnimationFrame(() => focusOption(e.key === "ArrowDown" ? 0 : -1));
+          }
+        },
+        { signal },
+      );
+
+      lang.addEventListener(
+        "keydown",
+        (e) => {
+          if (!langOpen()) return;
+          const i = langOptions.indexOf(document.activeElement as HTMLAnchorElement);
+          if (e.key === "ArrowDown" && i >= 0) {
+            e.preventDefault();
+            focusOption(i + 1);
+          } else if (e.key === "ArrowUp" && i >= 0) {
+            e.preventDefault();
+            focusOption(i - 1);
+          } else if (e.key === "Escape") {
+            e.preventDefault();
+            e.stopPropagation();
+            setLangOpen(false);
+            langToggle.focus();
+          } else if (e.key === "Tab") {
+            setLangOpen(false);
+          }
+        },
+        { signal },
+      );
+
+      document.addEventListener(
+        "pointerdown",
+        (e) => {
+          if (langOpen() && !lang.contains(e.target as Node)) setLangOpen(false);
+        },
+        { signal },
+      );
+
+      // Closing the mobile panel also resets the dropdown.
+      new MutationObserver(() => {
+        if (header.dataset.menu === "closed") setLangOpen(false);
+      }).observe(header, { attributes: true, attributeFilter: ["data-menu"] });
+    }
+
     // --- sticky state + scroll-spy ------------------------------------------
 
     // Links that point at a section on this page: "/#features", "/tw#service" ...
-    const links = Array.from(header.querySelectorAll<HTMLAnchorElement>("#nav-menu a.nav-link:not(.nav-lang)"));
+    const links = Array.from(header.querySelectorAll<HTMLAnchorElement>("#nav-menu a.nav-link"));
     const targets = links
       .map((link) => {
         const url = new URL(link.getAttribute("href") ?? "", location.origin);

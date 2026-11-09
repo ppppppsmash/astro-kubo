@@ -116,8 +116,136 @@
   }
 }
 
-.nav-lang {
-  @apply text-dark/55;
+// ---------------------------------------------------------------------------
+// Language switcher: globe button + dropdown (popover on desktop, inline
+// disclosure inside the mobile panel)
+// ---------------------------------------------------------------------------
+.lang {
+  @apply relative;
+}
+
+.lang-toggle {
+  @apply flex w-full items-center gap-2.5 py-3.5 pl-4 text-[15px] tracking-[0.04em] text-dark/75;
+  @apply lg:h-10 lg:w-auto lg:gap-1.5 lg:rounded-full lg:px-2.5 lg:py-0 lg:text-[14px];
+  transition:
+    color 200ms ease,
+    background-color 200ms ease;
+
+  .lang[data-open="true"] & {
+    @apply text-dark;
+  }
+}
+
+.lang-label {
+  @apply lg:sr-only;
+}
+
+.lang-chevron {
+  @apply ml-auto h-3.5 w-3.5 text-dark/55 lg:ml-0 lg:h-3 lg:w-3;
+  transition: transform 220ms var(--ease-out);
+
+  .lang[data-open="true"] & {
+    transform: rotate(180deg);
+  }
+}
+
+// mobile: inline disclosure (grid 0fr → 1fr)
+.lang-menu {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 260ms var(--ease-out);
+
+  .lang[data-open="true"] & {
+    grid-template-rows: 1fr;
+  }
+}
+
+.lang-list {
+  @apply min-h-0 overflow-hidden pl-10;
+  visibility: hidden;
+  transition: visibility 0s linear 260ms;
+
+  .lang[data-open="true"] & {
+    visibility: visible;
+    transition: visibility 0s;
+  }
+}
+
+.lang-option {
+  @apply flex items-center justify-between gap-6 py-2.5 text-[14px] tracking-[0.04em] text-dark/60;
+  transition:
+    color 200ms ease,
+    background-color 200ms ease;
+
+  &[aria-current] {
+    @apply text-dark;
+  }
+
+  .lang-check {
+    @apply opacity-0;
+  }
+
+  &[aria-current] .lang-check {
+    @apply opacity-100;
+  }
+}
+
+li[role="none"]:last-child .lang-option {
+  @apply pb-3.5 lg:pb-2;
+}
+
+// desktop: floating popover under the button
+@screen lg {
+  .lang-menu {
+    @apply absolute right-0 top-full mt-2 block w-max min-w-[10.5rem] rounded-2xl border border-border bg-body p-1.5;
+    box-shadow:
+      0 1px 2px rgb(0 0 0 / 0.04),
+      0 12px 32px -12px rgb(0 0 0 / 0.18);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px) scale(0.98);
+    transform-origin: top right;
+    pointer-events: none;
+    transition:
+      opacity 180ms ease,
+      transform 240ms var(--ease-out),
+      visibility 0s linear 240ms;
+
+    .lang[data-open="true"] & {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      pointer-events: auto;
+      transition:
+        opacity 180ms ease,
+        transform 240ms var(--ease-out),
+        visibility 0s;
+    }
+  }
+
+  .lang-list {
+    @apply overflow-visible pl-0;
+    visibility: inherit;
+    transition: none;
+  }
+
+  .lang-option {
+    @apply rounded-[10px] px-3 py-2;
+
+    &:focus-visible {
+      @apply bg-dark/5 text-dark outline-none;
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lang-toggle:hover {
+    @apply text-dark lg:bg-dark/5;
+  }
+
+  .lang-option:hover {
+    @apply text-dark lg:bg-dark/5;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -170,7 +298,12 @@
   .nav-link::before,
   .nav-link::after,
   .nav-toggle,
-  .nav-toggle-icon {
+  .nav-toggle-icon,
+  .lang-toggle,
+  .lang-chevron,
+  .lang-menu,
+  .lang-list,
+  .lang-option {
     transition: none !important;
   }
 }

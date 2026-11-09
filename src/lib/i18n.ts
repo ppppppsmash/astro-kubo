@@ -3,12 +3,17 @@ export type Locale = "ja" | "tw";
 export const getLocale = (pathname: string): Locale =>
   pathname.startsWith("/tw") ? "tw" : "ja";
 
+export const languages = [
+  { code: "ja", label: "日本語", hreflang: "ja", href: "/" },
+  { code: "tw", label: "繁體中文", hreflang: "zh-Hant", href: "/tw" },
+] as const satisfies ReadonlyArray<{ code: Locale; label: string; hreflang: string; href: string }>;
+
 export const dict = {
   ja: {
     contact: "お問い合わせ",
     shop: "オンラインショップ",
     instagram: "Instagram",
-    langSwitch: { label: "繁體中文", href: "/tw" },
+    language: "言語を選択",
     company: "会社情報",
     links: "リンク",
     madeIn: "Made in Japan",
@@ -21,7 +26,7 @@ export const dict = {
     contact: "聯繫我們",
     shop: "線上商店",
     instagram: "Instagram",
-    langSwitch: { label: "日本語", href: "/" },
+    language: "選擇語言",
     company: "公司資訊",
     links: "連結",
     madeIn: "Made in Japan",
