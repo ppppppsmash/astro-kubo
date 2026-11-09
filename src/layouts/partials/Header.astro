@@ -11,25 +11,31 @@ const text = t(pathname);
 const contactHref = `mailto:${config.params.email}`;
 ---
 
-<header class="header">
+<header class="header" data-menu="closed">
   <nav class="navbar container" aria-label="Main">
     <div class="order-0">
       <Logo />
     </div>
 
-    <input id="nav-toggle" type="checkbox" class="hidden" />
-    <label id="show-button" for="nav-toggle" class="nav-toggle order-2 lg:hidden" aria-label={text.menuOpen}>
-      <svg class="h-5 w-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+    <button
+      type="button"
+      id="nav-toggle"
+      class="nav-toggle order-2 lg:hidden"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+      aria-label={text.menuOpen}
+      data-label-open={text.menuOpen}
+      data-label-close={text.menuClose}
+    >
+      <svg class="nav-toggle-icon nav-toggle-icon-open h-5 w-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
         <path d="M2 5h16M2 10h16M2 15h16" stroke-linecap="round" />
       </svg>
-    </label>
-    <label id="hide-button" for="nav-toggle" class="nav-toggle order-2 hidden lg:hidden" aria-label={text.menuClose}>
-      <svg class="h-5 w-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <svg class="nav-toggle-icon nav-toggle-icon-close h-5 w-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
         <path d="M4 4l12 12M16 4L4 16" stroke-linecap="round" />
       </svg>
-    </label>
+    </button>
 
-    <ul id="nav-menu" class="navbar-nav order-3 hidden lg:order-1 lg:flex lg:items-center lg:gap-x-1">
+    <ul id="nav-menu" class="navbar-nav order-3 lg:order-1">
       {
         items.map((item) => (
           <li class="nav-item">
@@ -44,8 +50,8 @@ const contactHref = `mailto:${config.params.email}`;
           {text.langSwitch.label}
         </a>
       </li>
-      <li class="nav-item mt-3 lg:ml-4 lg:mt-0">
-        <a href={contactHref} class="btn btn-primary btn-sm">{text.contact}</a>
+      <li class="nav-item nav-item-cta lg:ml-4">
+        <a href={contactHref} class="btn btn-primary btn-sm w-full lg:w-auto">{text.contact}</a>
       </li>
     </ul>
   </nav>
@@ -61,6 +67,60 @@ const contactHref = `mailto:${config.params.email}`;
 
     const header = document.querySelector<HTMLElement>(".header");
     if (!header) return;
+
+    // --- mobile menu -------------------------------------------------------
+    const toggle = header.querySelector<HTMLButtonElement>("#nav-toggle");
+    const menu = header.querySelector<HTMLElement>("#nav-menu");
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const isOpen = () => header.dataset.menu === "open";
+
+    const setOpen = (open: boolean) => {
+      if (!toggle) return;
+      header.dataset.menu = open ? "open" : "closed";
+      toggle.setAttribute("aria-expanded", String(open));
+      const label = open ? toggle.dataset.labelClose : toggle.dataset.labelOpen;
+      if (label) toggle.setAttribute("aria-label", label);
+    };
+
+    if (toggle && menu) {
+      toggle.addEventListener("click", () => setOpen(!isOpen()), { signal });
+
+      // Tapping any link (anchor, language switch, contact) closes the menu.
+      menu.addEventListener(
+        "click",
+        (e) => {
+          if ((e.target as Element).closest("a")) setOpen(false);
+        },
+        { signal },
+      );
+
+      document.addEventListener(
+        "keydown",
+        (e) => {
+          if (e.key === "Escape" && isOpen()) {
+            setOpen(false);
+            toggle.focus();
+          }
+        },
+        { signal },
+      );
+
+      // Tap outside the panel (scrim, logo, page) closes it.
+      document.addEventListener(
+        "pointerdown",
+        (e) => {
+          if (!isOpen()) return;
+          const target = e.target as Node;
+          if (menu.contains(target) || toggle.contains(target)) return;
+          setOpen(false);
+        },
+        { signal },
+      );
+
+      desktop.addEventListener("change", (e) => e.matches && setOpen(false), { signal });
+    }
+
+    // --- sticky state + scroll-spy ------------------------------------------
 
     // Links that point at a section on this page: "/#features", "/tw#service" ...
     const links = Array.from(header.querySelectorAll<HTMLAnchorElement>("#nav-menu a.nav-link:not(.nav-lang)"));

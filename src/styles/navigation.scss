@@ -1,46 +1,100 @@
-// navbar toggler
-input#nav-toggle:checked ~ label#show-button {
-  @apply hidden;
-}
-
-input#nav-toggle:checked ~ label#hide-button {
-  @apply flex lg:hidden;
-}
-
-input#nav-toggle:checked ~ #nav-menu {
-  @apply block lg:flex;
-}
-
 .header {
   @apply sticky top-0 z-50 border-b border-transparent bg-body/85 py-3 backdrop-blur-md md:py-4;
-  transition: border-color 300ms ease;
+  transition:
+    border-color 300ms ease,
+    background-color 300ms ease;
 
-  &-sticky {
+  &-sticky,
+  &[data-menu="open"] {
     @apply border-border;
+  }
+
+  // Open panel sits on an opaque header so nothing bleeds through.
+  &[data-menu="open"] {
+    @apply bg-body;
+  }
+
+  // Scrim under the panel (mobile only). Lives below the header edge so the
+  // header itself stays untouched; tapping it closes the menu.
+  &::before {
+    content: "";
+    @apply pointer-events-none absolute inset-x-0 top-full h-[100dvh] bg-dark/15 opacity-0 lg:hidden;
+    z-index: -1;
+    transition: opacity 260ms ease;
+  }
+
+  &[data-menu="open"]::before {
+    @apply pointer-events-auto opacity-100;
   }
 }
 
 .navbar {
-  @apply relative flex flex-wrap items-center justify-between;
+  @apply flex items-center justify-between;
 }
 
 .navbar-brand {
   @apply block;
 }
 
+// ---------------------------------------------------------------------------
+// Menu panel: overlay below the header on mobile, inline row on desktop.
+// ---------------------------------------------------------------------------
 .navbar-nav {
-  @apply w-full pb-4 pt-3 text-center lg:w-auto lg:p-0 lg:text-left;
+  @apply absolute inset-x-0 top-full border-b border-border bg-body px-5 pb-6 pt-1 text-left;
+  @apply lg:static lg:flex lg:items-center lg:gap-x-1 lg:border-0 lg:bg-transparent lg:p-0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition:
+    opacity 200ms ease,
+    transform 260ms var(--ease-out),
+    visibility 0s linear 260ms;
+
+  .header[data-menu="open"] & {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+    transition:
+      opacity 200ms ease,
+      transform 260ms var(--ease-out),
+      visibility 0s;
+  }
+
+  @screen lg {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+    transition: none;
+  }
 }
 
 .nav-item {
-  @apply lg:flex lg:items-center;
+  @apply border-t border-border/70 lg:flex lg:items-center lg:border-0;
+
+  &:first-child {
+    @apply border-t-0;
+  }
+}
+
+.nav-item-cta {
+  @apply mt-4 border-t-0 pt-1 lg:mt-0 lg:pt-0;
 }
 
 .nav-link {
-  @apply relative block px-3 py-2 text-[14px] tracking-[0.04em] text-dark/75 lg:inline-block;
+  @apply relative block py-3.5 pl-4 text-[15px] tracking-[0.04em] text-dark/75;
+  @apply lg:inline-block lg:px-3 lg:py-2 lg:text-[14px];
   transition: color 200ms ease;
 
-  // current-section underline (desktop only; mobile menu uses colour alone)
+  // current-section marker: dot on mobile, underline on desktop
+  &::before {
+    content: "";
+    @apply absolute left-0 top-1/2 h-1 w-1 -translate-y-1/2 rounded-full bg-dark opacity-0 lg:hidden;
+    transition: opacity 200ms ease;
+  }
+
   &::after {
     content: "";
     @apply absolute bottom-0.5 left-3 right-3 hidden h-px bg-dark lg:block;
@@ -51,6 +105,10 @@ input#nav-toggle:checked ~ #nav-menu {
 
   &.active {
     @apply text-dark;
+
+    &::before {
+      opacity: 1;
+    }
 
     &::after {
       transform: scaleX(1);
@@ -68,11 +126,51 @@ input#nav-toggle:checked ~ #nav-menu {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Toggle button: hamburger ⇄ cross
+// ---------------------------------------------------------------------------
 .nav-toggle {
-  @apply flex h-10 w-10 cursor-pointer items-center justify-center rounded-full;
+  @apply relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-dark;
   transition: transform 160ms var(--ease-out);
 
   &:active {
     transform: scale(0.94);
+  }
+}
+
+.nav-toggle-icon {
+  @apply absolute inset-0 m-auto;
+  transition:
+    opacity 180ms ease,
+    transform 260ms var(--ease-out);
+}
+
+.nav-toggle-icon-close {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.8);
+}
+
+.header[data-menu="open"] {
+  .nav-toggle-icon-open {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.8);
+  }
+
+  .nav-toggle-icon-close {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .header::before,
+  .navbar-nav,
+  .nav-link,
+  .nav-link::before,
+  .nav-link::after,
+  .nav-toggle,
+  .nav-toggle-icon {
+    transition: none !important;
   }
 }
